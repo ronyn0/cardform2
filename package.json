@@ -2,6 +2,8 @@
   "name": "cardform2",
   "version": "0.0.1",
   "private": true,
+  "author": "Ron",
+  "git": "https://github.com/ronyn0/cardform2/",
   "scripts": {
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www"
