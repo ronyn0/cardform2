@@ -2,8 +2,22 @@ doctype html
 html(lang='en')
   head
     title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    block navbar 
+      div(class='navbar')
+        ul
+          li
+            a(href='/') Home
+          li
+            a(href='/catalog/books') All books
+          li
+            a(href='/catalog/authors') All authors
+          li
+            a(href='/catalog/genres') All genres
+    div(class='container')
+      block content
   footer
     p © #{new Date().getFullYear()} Ronyn.cx
