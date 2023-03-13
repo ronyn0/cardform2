@@ -15,9 +15,7 @@ const Customers = sequelize.define("Customers", {
         type: Sequelize.STRING,
         allownull: true
     }
- }, {
-    timestapes: false
-});
+ });
 
 // Customers model complete and lines up with the database
 
