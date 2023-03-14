@@ -44,7 +44,7 @@ app.use(function(err, req, res, next) {
 
 //mysql integration, looks like it works in console
 
-con.query("SELECT * FROM customers", function (err, result, fields) {
+con.query("SELECT * FROM Customers", function (err, result, fields) {
     if (err) throw err;
     console.log(result);
     console.log(result[2].address);
