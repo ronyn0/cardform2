@@ -12,6 +12,7 @@ block content
   ul 
     each customer in customer_list 
         li 
-            a(href=customer.url) #{customer.name}
+            a(href=customer.url) #{customer.id}
+            |. #{customer.name}
     else 
         li there are no customers I guess
