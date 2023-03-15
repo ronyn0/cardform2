@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Card Form' });
 });
 
+router.get('/catalogue', function(req, res, next) {
+  res.render('index', { title: 'Card Form' });
+});
+
 module.exports = router;

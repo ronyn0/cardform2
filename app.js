@@ -4,11 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var favicon = require('express-favicon');
+var wiki = require("./routes/wiki");
 
 var con = require('./database/mydb');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+//Import routes for "catalog" area of site
+const catalogRouter = require('./routes/catalog');
 
 var app = express();
 
@@ -25,6 +28,9 @@ app.use(favicon(__dirname + '/public/images/d20.png'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/wiki', wiki);
+// Add catalog routes to middleware chain.
+app.use("/catalog", catalogRouter); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
