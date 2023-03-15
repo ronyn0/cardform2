@@ -1,4 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
+async = require('async');
+//const { UPSERT } = require("sequelize/types/query-types");
 const sequelize = require('../database/sequelize');
 
 const Customers = sequelize.define("Customers", {
@@ -16,6 +18,8 @@ const Customers = sequelize.define("Customers", {
         allownull: true
     }
  });
+
+module.exports = Customers;
 
 // Customers model complete and lines up with the database
 

@@ -1,8 +1,20 @@
 const Customer = require('../models/customers');
+const async = require('async');
+const { Sequelize } = require('sequelize');
 
-// display listof all customers
+// display homepage
+exports.index = (req, res, next) => {
+    res.send("NOT IMPLEMENTED: Site Home Page");
+  };
+
+// display listof all customers using a promise
+// then you call the variable in the promise so you can use it
 exports.customer_list = (req, res) => {
+    var mycount = Customer.count().then((mycount) => {
+        console.log(mycount);
+      });
     res.send("NOT IMPLEMENTED: customer list");
+    //console.log(mycount);
   };
 
 // display detail page for a specific customer
