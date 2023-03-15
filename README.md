@@ -4,8 +4,8 @@ testing more with express using mysql
 
 url: https://github.com/ronyn0/cardform2/
 
-to-do:  get the mysql data into pug
-        translae the dndcards into pug
+to-do:  get the mysql data into pug - done
+        translate the dndcards into pug
         make tables for dndcards and normalize character info
         make dndcards data driven
         make the form for characters
