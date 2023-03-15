@@ -4,22 +4,26 @@ const { Sequelize } = require('sequelize');
 
 // display homepage
 exports.index = (req, res, next) => {
-    res.send("NOT IMPLEMENTED: Site Home Page");
-  };
-
-// display listof all customers using a promise
-// then you call the variable in the promise so you can use it
-exports.customer_list = (req, res, next) => {
     var mycount = Customer.count().then((mycount) => {
         //console.log(mycount);
         res.render("index", {
             title: "Card Form",
-            //error: err,
             data: mycount,
         })
     });
-    //console.log(mycount);
+    //console.log(mycount); testing output from the function
   };
+
+// display list of all customers using a promise
+// then you call the variable in the promise (.then()) so you can use it
+exports.customer_list = (req, res, next) => {
+    const users = Customer.findAll().then((users) => {
+        res.render("customer_list", {
+            title: "Customer List", 
+            customer_list: users,
+        })
+    });
+};
 
 // display detail page for a specific customer
 exports.customer_detail = (req, res) => {

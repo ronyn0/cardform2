@@ -29,6 +29,9 @@ router.post("/customers/:id/update", customer_controller.customer_update_post);
 router.get("/customers/:id", customer_controller.customer_detail);
 
 // GET request for list of all customers.
-router.get("/customers", customer_controller.customer_list);
+router.get("/customers", customer_controller.index);
+
+// GET request for list of all customers.
+router.get("/customers_list", customer_controller.customer_list);
 
 module.exports = router;
