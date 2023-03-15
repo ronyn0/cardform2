@@ -9,11 +9,11 @@ exports.index = (req, res, next) => {
 
 // display listof all customers using a promise
 // then you call the variable in the promise so you can use it
-exports.customer_list = (req, res) => {
+exports.customer_list = (req, res, next) => {
     var mycount = Customer.count().then((mycount) => {
         console.log(mycount);
+        res.send("the number of customers is: " + mycount);
       });
-    res.send("NOT IMPLEMENTED: customer list");
     //console.log(mycount);
   };
 
