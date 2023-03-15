@@ -34,6 +34,26 @@ div.navbar li a:hover {
 div.container {
   padding: 15px;
 }
+div.cardContainer {
+  margin-top:15px;
+  margin-left:auto;
+  margin-right:auto;
+}
+div.grid {
+  content: "";
+  display: table;
+  clear: both
+}
+div.third {
+  width: 33.33333%;
+  padding: 0 8px;
+}
+div.card {
+  color: #757575;
+  background-color: #fff;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
 footer {
   padding: 15px;
 }
