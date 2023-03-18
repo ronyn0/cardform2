@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Home page route (localhost/wiki)
 router.get("/", function (req, res) {
-  res.send("Wiki home page");
+  res.render('dndcard', { title: 'Card Form' });
 });
 
 // About page route.

@@ -31,6 +31,8 @@ div.navbar ul {
 div.navbar li a:hover {
   background-color: #111;
 }
+
+/* this area is for the card form */
 div.container {
   padding: 15px;
 }
@@ -41,8 +43,8 @@ div.cardContainer {
 }
 div.grid {
   content: "";
-  display: table;
-  clear: both
+  /*display: table;*/
+  clear: both;
 }
 div.third {
   width: 33.33333%;
@@ -52,8 +54,19 @@ div.card {
   color: #757575;
   background-color: #fff;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
-
+  padding:16px;
+  position: relative;
 }
 footer {
   padding: 15px;
+}
+.largeText {
+  font-size:18px;
+}
+div.rounded {
+  color: #000;
+  background-color: #f1f1f1;
+  border-radius: 16px;
+  padding:16px;
+  font-size: 12px;
 }
