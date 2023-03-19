@@ -2,7 +2,8 @@
 
 testing more with express using mysql
 
-url: https://github.com/ronyn0/cardform2/
+git url: https://github.com/ronyn0/cardform2/
+diagram site: https://app.diagrams.net/ 
 
 to-do:  get the mysql data into pug - done
         translate the dndcards into pug - template done
