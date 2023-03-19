@@ -11,3 +11,5 @@ to-do:  get the mysql data into pug - done
         make the form for characters
         make a home page that shows a random character
         deploy to a server
+
+to format code do ctrl+shift+i

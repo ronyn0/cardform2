@@ -5,7 +5,6 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
     block navbar 
       div(class='navbar')
         ul
@@ -21,7 +20,8 @@ html(lang='en')
             a(href='/wiki') Wiki 
           li 
             a(href='/wiki/about') About this
-    div(class='container')
+  body
       block content
   footer
-    p © #{new Date().getFullYear()} Ronyn.cx
+    div(class='footerbar')
+      p © #{new Date().getFullYear()} Ronyn.cx
