@@ -7,7 +7,7 @@ diagram site: https://app.diagrams.net/
 
 to-do:  get the mysql data into pug - done
         translate the dndcards into pug - template done
-        make tables for dndcards and normalize character info (with models)
+        make tables for dndcards and normalize character info (with models) - done
         make dndcards data driven
         make the form for characters
         make a home page that shows a random character
