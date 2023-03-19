@@ -15,6 +15,10 @@ const CharacterProfs = sequelize.define("CharacterProfs", {
         primaryKey: true,
         foreignKey: true
     }
+}, {
+    freezeTableName: true
 });
+
+CharacterProfs.sync();
 
 module.exports = CharacterProfs;

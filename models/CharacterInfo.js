@@ -80,6 +80,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: false,
         defaultValue: 1
     }
+}, {
+    freezeTableName: true
 });
+
+CharacterInfo.sync();
 
 module.exports = CharacterInfo;

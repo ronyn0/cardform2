@@ -49,6 +49,10 @@ const Background = sequelize.define("Background", {
         type: Sequelize.STRING,
         allownull: true
     }
+}, {
+    freezeTableName: true
 });
+
+Background.sync();
 
 module.exports = Background;

@@ -18,6 +18,10 @@ const Proficiency = sequelize.define("Proficiency", {
         allownull: true,
         defaultValue: "STR"
     }
+}, {
+    freezeTableName: true
 });
+
+Proficiency.sync();
 
 module.exports = Proficiency;

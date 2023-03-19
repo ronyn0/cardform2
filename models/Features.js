@@ -34,6 +34,10 @@ const Features = sequelize.define("Features", {
         type: Sequelize.STRING,
         allownull: true
     }
+}, {
+    freezeTableName: true
 });
+
+Features.sync();
 
 module.exports = Features;

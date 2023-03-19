@@ -30,6 +30,10 @@ const Lineage = sequelize.define("Lineage", {
         type: Sequelize.STRING,
         allownull: true
     }
+}, {
+freezeTableName: true
 });
+
+Lineage.sync();
 
 module.exports = Lineage;
