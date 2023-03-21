@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var favicon = require('express-favicon');
 var wiki = require("./routes/wiki");
+var CharacterInfo = require("./routes/CharacterInfo");
 
 var con = require('./database/mydb');
 
@@ -29,6 +30,7 @@ app.use(favicon(__dirname + '/public/images/d20.png'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/wiki', wiki);
+app.use('/CharacterInfo', CharacterInfo);
 // Add catalog routes to middleware chain.
 app.use("/catalog", catalogRouter); 
 

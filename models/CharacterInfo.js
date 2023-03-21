@@ -79,11 +79,43 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         type: Sequelize.INTEGER,
         allownull: false,
         defaultValue: 1
+    },
+    ImgLocation: {
+        type: Sequelize.STRING,
+        allownull: true,
+        defaultValue: 'images/test.jpg'
     }
 }, {
     freezeTableName: true
 });
 
-CharacterInfo.sync();
+CharacterInfo.sync().then(() => {
+    console.log('Table Found!');
+    }).catch((error) => {
+    console.error('Unable to create table : ', error);
+});
+
+/* create skrank in db for testing
+CharacterInfo.create({
+    Name: 'Skrank',
+    PlayerName: 'Ron',
+    Class: 'Artificer',
+    Lineage: 'Kobold',
+    AC: '15',
+    Bonus: '3',
+    STR: '6',
+    DEX: '16',
+    CON: '12',
+    INT: '18',
+    WIS: '8',
+    CHA: '8',
+    Init: '3',
+    HP: '45'
+}).then(user => {
+    console.log(user.get({ plain: true }));
+}).catch(err => {
+    console.log(err);
+});
+*/
 
 module.exports = CharacterInfo;

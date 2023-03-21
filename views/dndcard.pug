@@ -8,47 +8,47 @@ block content
           p(class='largeText') Stats
             div(class='rounded')
               div(class='stats')
-                p Strength 
+                p Strength: #{char_info.STR}
                   ul 
                     li Athletics: 
             br
             div(class='rounded')
               div(class='stats')
-                p Dexterity 
+                p Dexterity: #{char_info.DEX}
                   ul 
                     li Arobatics: 
             br
             div(class='rounded')
               div(class='stats')
-                p Constitution
+                p Constitution: #{char_info.CON}
                   ul 
                     li gonna have the skills listed here: 
             br
             div(class='rounded')
               div(class='stats')
-                p Intelligence
+                p Intelligence: #{char_info.INT}
                   ul 
                     li Arcana: 
             br
             div(class='rounded')
               div(class='stats')
-                p Wisdom
+                p Wisdom: #{char_info.WIS}
                   ul 
                     li Animal Handling: 
             br
             div(class='rounded')
               div(class='stats')
-                p Charisma
+                p Charisma: #{char_info.CHA}
                   ul 
                     li Deception: 
             br
 
       div(class='third')
         div(class='card')
-          p(class='largeText charName') Skrank
-          p(class='charName') image goes here
-          img(class='imgSizing' src='/images/test.jpg')
-          p(class='charInfo') more stats, hp, init, ac
+          div(class='largeText charName coolFont') #{char_info.Name}
+          p(class='charName') #{char_info.Lineage} #{char_info.Class}
+          img(class='imgSizing' src=char_info.ImgLocation)
+          p(class='charInfo boldInfo') Armor Class: #{char_info.AC} &#8226; Initiative: #{char_info.Init} &#8226; HP: #{char_info.HP}
           br
           
       div(class='third')

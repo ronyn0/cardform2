@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Draconis;
+  src: url(../Draconis-JRw6B.ttf);
+}
+
 body {
   padding: 0px;
   margin: 0px;
@@ -124,4 +129,15 @@ div.rounded {
 
 .charName {
   text-align: right;
+}
+
+.boldInfo {
+  font-weight: bold;
+}
+
+.coolFont {
+  font-family: Draconis;
+  font-size: 36px;
+  color:#000;
+  padding:0px;
 }
