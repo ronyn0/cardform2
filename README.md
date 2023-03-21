@@ -14,3 +14,5 @@ to-do:  get the mysql data into pug - done
         deploy to a server
 
 to format code do ctrl+shift+i (like cs)
+
+to launch use npm run devstart
