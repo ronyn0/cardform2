@@ -13,6 +13,6 @@ to-do:  get the mysql data into pug - done
         make a home page that shows a random character
         deploy to a server
 
-to format code do ctrl+shift+i (like cs)
+to format code do ctrl+shift+i (like css)
 
 to launch use npm run devstart
