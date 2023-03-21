@@ -95,12 +95,17 @@ div.card {
 
 footer {
   padding: 0px;
-  position: absolute;
   width: 100%;
-  bottom: 0px;
   background-color: #333;
   color: #FFF;
   font-size: 14pt;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  position: fixed;
+  bottom: 0pt;
+  left: 0pt;
 }
 
 .footerbar {
