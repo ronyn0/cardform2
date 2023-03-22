@@ -21,7 +21,24 @@ exports.skrank = (req, res, next) => {
         res.render("dndcard", {
             title: char.Name, 
             char_info: char,
-            image: char.ImgLocation,
         })
     });
+};
+
+exports.character = (req, res, next) => {
+    const char = CharacterInfo.findOne({
+        where: { CharID: req.params.id }
+    }).then((char) => {
+        res.render("dndcard", {
+            title: char.Name, 
+            char_info: char,
+        })
+    }).catch(function (err) {
+        res.status(500);
+        //res.render('error', {error: err}) show the error info
+        res.render('error', {
+            message: 'Character not found',
+            error: err,
+        });
+    })
 };

@@ -17,7 +17,9 @@ router.get("/about", function (req, res) {
 });
 
 // Skrank test page route.
-router.get("/skrank", CharacterInfo_Controller.skrank);
+//router.get("/skrank", CharacterInfo_Controller.skrank);
+
+router.get("/:id", CharacterInfo_Controller.character);
 
 // Export this route as a module so we can require it
 // and call it from app.js
