@@ -1,4 +1,5 @@
 const CharacterInfo = require('../models/CharacterInfo');
+const Background = require('../models/Background');
 const async = require('async');
 const { Sequelize } = require('sequelize');
 
@@ -27,7 +28,8 @@ exports.skrank = (req, res, next) => {
 
 exports.character = (req, res, next) => {
     const char = CharacterInfo.findOne({
-        where: { CharID: req.params.id }
+        where: { CharID: req.params.id },
+        include: [{ model: Background }]
     }).then((char) => {
         res.render("dndcard", {
             title: char.Name, 
@@ -35,10 +37,11 @@ exports.character = (req, res, next) => {
         })
     }).catch(function (err) {
         res.status(500);
-        //res.render('error', {error: err}) show the error info
+        res.render('error', {error: err}) //show the error info
         res.render('error', {
             message: 'Character not found',
             error: err,
         });
     })
+    //console.log(char.toJSON());
 };

@@ -46,7 +46,7 @@ div.navbar li a:hover {
 }
 
 div.stats ul {
-  padding-left: 10px;
+  padding-left: 15px;
 }
 
 div.stats p {
@@ -121,7 +121,7 @@ div.rounded {
   background-color: #f1f1f1;
   border-radius: 16px;
   padding: 5px 0px 2px 10px;
-  font-size: 12px;
+  font-size: 12pt;
 }
 
 .imgSizing {

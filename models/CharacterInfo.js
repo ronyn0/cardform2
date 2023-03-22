@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 async = require('async');
 const sequelize = require('../database/sequelize');
+const Background = require('./Background');
 
 const CharacterInfo = sequelize.define("CharacterInfo", {
     CharID: {
@@ -23,6 +24,7 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
     },
     BackgroundID: {
         type: Sequelize.INTEGER,
+        foreignKey: true,
         allownull: true
     },
     Lineage: {
@@ -87,8 +89,20 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
     }
 }, {
     freezeTableName: true
+},{
+    classMethods: {
+        associate:function(models) {
+            CharacterInfo.hasOne(models.Background, { foreignKey: 'BackgroundID' });
+        }
+    }
+});
+CharacterInfo.hasOne(Background, {
+    foreignKey: 'BackgroundID'
 });
 
+
+
+// use .sync({ alter: true }) to update table
 CharacterInfo.sync().then(() => {
     console.log('Table Found!');
     }).catch((error) => {
