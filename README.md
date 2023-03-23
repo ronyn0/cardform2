@@ -10,15 +10,10 @@ to-do:  get the mysql data into pug - done
         make tables for dndcards and normalize character info (with models) - done
         make dndcards data driven - in progress
                 CharacterInfo - done
-
                 Background - done (needs links)
-
                 Features - done
-
                 Lineage - done (needs links)
-
                 Proficiencies 
-                
         make the form for characters
         make a home page that shows a random character
         deploy to a server
