@@ -2,6 +2,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 async = require('async');
 const sequelize = require('../database/sequelize');
 const Background = require('./Background');
+const Features = require('./Features');
 
 const CharacterInfo = sequelize.define("CharacterInfo", {
     CharID: {
@@ -20,6 +21,7 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
     },
     Class: {
         type: Sequelize.STRING,
+        foreignKey: true,
         allownull: false
     },
     BackgroundID: {
@@ -93,13 +95,19 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
     classMethods: {
         associate:function(models) {
             CharacterInfo.hasOne(models.Background, { foreignKey: 'BackgroundID' });
+        },
+        associate:function(models) {
+            CharacterInfo.hasMany(models.Features, { foreignKey: 'Class' });    
         }
     }
 });
 CharacterInfo.hasOne(Background, {
     foreignKey: 'BackgroundID'
 });
-
+CharacterInfo.hasMany(Features, {
+    foreignKey: 'Class',
+    sourceKey: 'Class'
+})
 
 
 // use .sync({ alter: true }) to update table

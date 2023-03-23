@@ -45,6 +45,16 @@ div.navbar li a:hover {
   background-color: #111;
 }
 
+div.features li {
+  list-style-type: none;
+  line-height: 15pt;
+}
+
+div.features li a {
+  text-decoration: none;
+  color:#65350F;
+}
+
 div.stats ul {
   padding-left: 15px;
 }

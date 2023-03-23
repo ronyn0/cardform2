@@ -1,5 +1,6 @@
 const CharacterInfo = require('../models/CharacterInfo');
 const Background = require('../models/Background');
+const Features = require('../models/Features');
 const async = require('async');
 const { Sequelize } = require('sequelize');
 
@@ -29,7 +30,9 @@ exports.skrank = (req, res, next) => {
 exports.character = (req, res, next) => {
     const char = CharacterInfo.findOne({
         where: { CharID: req.params.id },
-        include: [{ model: Background }]
+        include: [
+            { model: Background },
+            { model: Features, as: 'Features' }]
     }).then((char) => {
         res.render("dndcard", {
             title: char.Name, 

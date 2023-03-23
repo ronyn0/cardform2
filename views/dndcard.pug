@@ -56,15 +56,22 @@ block content
           p(class='largeText') Features
             div(class='stats')
               div(class='rounded')
-                p Error getting dynamic content.
-                p features ul
-                ul
-                  li there are no customers I guess
-              br
-              div(class='rounded')
-                p class traits
+                p Lineage
                 ul 
                   li stuff
+              br
+              div(class='rounded')
+                div(class='features')
+                  p Class Features: #{char_info.Class}
+                  ul
+                    each Feature in char_info.Features 
+                      li
+                        if Feature.SubClass == ''
+                          div Level #{Feature.Level}. 
+                            a(href=Feature.Link) #{Feature.FeatureName}
+                        else if Feature.SubClass != ''
+                          div Level #{Feature.Level}. 
+                            a(href=Feature.Link) #{Feature.FeatureName} (#{Feature.SubClass})
               br
               div(class='rounded')
                 p Background: #{char_info.Background.BackgroundName}
