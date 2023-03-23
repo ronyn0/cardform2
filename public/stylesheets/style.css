@@ -1,3 +1,8 @@
+/*
+colors:
+  Links #65350F
+*/
+
 @font-face {
   font-family: Draconis;
   src: url(../Draconis-JRw6B.ttf);
@@ -45,9 +50,9 @@ div.navbar li a:hover {
   background-color: #111;
 }
 
-div.features li {
+div.rounded li {
   list-style-type: none;
-  line-height: 15pt;
+  line-height: 16pt;
 }
 
 div.features li a {

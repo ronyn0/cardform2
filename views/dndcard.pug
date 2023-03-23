@@ -79,6 +79,8 @@ block content
                         else if Feature.SubClass != ''
                           div Level #{Feature.Level}. 
                             a(href=Feature.Link) #{Feature.FeatureName} (#{Feature.SubClass})
+                        else 
+                          div class features not found
               br
               div(class='rounded')
                 p Background: #{char_info.Background.BackgroundName}
