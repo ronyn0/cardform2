@@ -56,9 +56,16 @@ block content
           p(class='largeText') Features
             div(class='stats')
               div(class='rounded')
-                p Lineage
+                p Lineage: #{char_info.Lineage}
                 ul 
-                  li stuff
+                  if char_info.LineageIdentifier.Feature1 != ''
+                    li #{char_info.LineageIdentifier.Feature1}
+                  if char_info.LineageIdentifier.Feature2 != ''
+                    li #{char_info.LineageIdentifier.Feature2}
+                  if char_info.LineageIdentifier.Feature3 != ''
+                    li #{char_info.LineageIdentifier.Feature3}
+                  if char_info.LineageIdentifier.Feature4 != ''
+                    li #{char_info.LineageIdentifier.Feature4}
               br
               div(class='rounded')
                 div(class='features')

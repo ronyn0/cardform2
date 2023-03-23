@@ -3,13 +3,15 @@ async = require('async');
 const sequelize = require('../database/sequelize');
 const Background = require('./Background');
 const Features = require('./Features');
+const Lineage = require('./Lineage');
 
 const CharacterInfo = sequelize.define("CharacterInfo", {
     CharID: {
         type: Sequelize.INTEGER,
         allownull: true,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
+        foreignKey: true
     },
     Name: {
         type: Sequelize.STRING,
@@ -98,11 +100,19 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         },
         associate:function(models) {
             CharacterInfo.hasMany(models.Features, { foreignKey: 'Class' });    
+        },
+        associate:function(models) {
+            CharacterInfo.hasOne(models.Lineage, { foreignKey: 'CharID' });
         }
     }
 });
 CharacterInfo.hasOne(Background, {
     foreignKey: 'BackgroundID'
+});
+CharacterInfo.hasOne(Lineage, {
+    foreignKey: 'CharId',
+    as: 'LineageIdentifier',
+    sourceKey: 'CharID'
 });
 CharacterInfo.hasMany(Features, {
     foreignKey: 'Class',
