@@ -21,3 +21,5 @@ to-do:  get the mysql data into pug - done
 to format code do ctrl+shift+i (like css)
 
 to launch use npm run devstart
+
+to-do: re-format readme
