@@ -10,14 +10,18 @@ const Features = sequelize.define("Features", {
         primaryKey: true,
         autoIncrement: true
     },
+    CharID: {
+        type: Sequelize.INTEGER,
+        allownull: false,
+        foreignKey: true
+    },
     Level: {
         type: Sequelize.INTEGER,
         allownull: false
     },
     Class: {
         type: Sequelize.STRING,
-        allownull: false,
-        foreignKey: true
+        allownull: false
     },
     SubClass: {
         type: Sequelize.STRING,

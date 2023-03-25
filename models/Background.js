@@ -64,7 +64,7 @@ const Background = sequelize.define("Background", {
     }
 });
 
-Background.sync( { alter: true } );
+Background.sync();
 
 /* create test background in db for testing
 Background.create({

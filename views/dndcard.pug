@@ -6,41 +6,72 @@ block content
       div(class='third')
         div(class='card')
           p(class='largeText') Stats:
+          - var pro = 3
             div(class='rounded')
               div(class='stats')
-                p Strength: #{char_info.STR}
+                p Strength: #{char_info.STR} &#8226; Check: #{(char_info.STR - 10)/2} &#8226; Save: #{(char_info.STR - 10)/2} 
                   ul 
-                    li Athletics: 
+                    each Skill in char_info.Skills
+                      if(Skill.Attribute == 'STR' && Skill.IsProficient == false)
+                        li #{Skill.Name}: #{(char_info.STR - 10)/2}
+                      if(Skill.Attribute == 'STR' && Skill.IsProficient == true)
+                        li 
+                          b #{Skill.Name}: #{((char_info.STR - 10)/2) + pro}
             br
             div(class='rounded')
               div(class='stats')
-                p Dexterity: #{char_info.DEX}
+                p Dexterity: #{char_info.DEX} &#8226; Check: #{(char_info.DEX - 10)/2} &#8226; Save: #{(char_info.DEX - 10)/2} 
                   ul 
-                    li Arobatics: 
+                    each Skill in char_info.Skills
+                      if(Skill.Attribute == 'DEX' && Skill.IsProficient == false)
+                        li #{Skill.Name}: #{(char_info.DEX - 10)/2}
+                      if(Skill.Attribute == 'DEX' && Skill.IsProficient == true)
+                        li 
+                          b #{Skill.Name}: #{((char_info.DEX - 10)/2) + pro}
             br
             div(class='rounded')
               div(class='stats')
-                p Constitution: #{char_info.CON}
+                p Constitution: #{char_info.CON} &#8226; Check: #{(char_info.CON - 10)/2} &#8226; Save: #{((char_info.CON - 10)/2) + pro} 
                   ul 
-                    li gonna have the skills listed here: 
+                    each Skill in char_info.Skills
+                      if(Skill.Attribute == 'CON' && Skill.IsProficient == false)
+                        li #{Skill.Name}: #{(char_info.CON - 10)/2}
+                      if(Skill.Attribute == 'CON' && Skill.IsProficient == true)
+                        li 
+                          b #{Skill.Name}: #{((char_info.CON - 10)/2) + pro}
             br
             div(class='rounded')
               div(class='stats')
-                p Intelligence: #{char_info.INT}
+                p Intelligence: #{char_info.INT} &#8226; Check: #{(char_info.INT - 10)/2} &#8226; Save: #{((char_info.INT - 10)/2) + pro} 
                   ul 
-                    li Arcana: 
+                    each Skill in char_info.Skills
+                      if(Skill.Attribute == 'INT' && Skill.IsProficient == false)
+                        li #{Skill.Name}: #{(char_info.INT - 10)/2}
+                      if(Skill.Attribute == 'INT' && Skill.IsProficient == true)
+                        li 
+                          b #{Skill.Name}: #{((char_info.INT - 10)/2) + pro}
             br
             div(class='rounded')
               div(class='stats')
-                p Wisdom: #{char_info.WIS}
+                p Wisdom: #{char_info.WIS} &#8226; Check: #{(char_info.WIS - 10)/2} &#8226; Save: #{(char_info.WIS - 10)/2} 
                   ul 
-                    li Animal Handling: 
+                    each Skill in char_info.Skills
+                      if(Skill.Attribute == 'WIS' && Skill.IsProficient == false)
+                        li #{Skill.Name}: #{(char_info.WIS - 10)/2}
+                      if(Skill.Attribute == 'WIS' && Skill.IsProficient == true)
+                        li 
+                          b #{Skill.Name}: #{((char_info.WIS - 10)/2) + pro}
             br
             div(class='rounded')
               div(class='stats')
-                p Charisma: #{char_info.CHA}
+                p Charisma: #{char_info.CHA} &#8226; Check: #{(char_info.CHA - 10)/2} &#8226; Save: #{(char_info.CHA - 10)/2} 
                   ul 
-                    li Deception: 
+                    each Skill in char_info.Skills
+                      if(Skill.Attribute == 'CHA' && Skill.IsProficient == false)
+                        li #{Skill.Name}: #{(char_info.CHA - 10)/2}
+                      if(Skill.Attribute == 'CHA' && Skill.IsProficient == true)
+                        li 
+                          b #{Skill.Name}: #{((char_info.CHA - 10)/2) + pro}
             br
 
       div(class='third')

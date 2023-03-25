@@ -2,6 +2,7 @@ const CharacterInfo = require('../models/CharacterInfo');
 const Background = require('../models/Background');
 const Features = require('../models/Features');
 const Lineage = require('../models/Lineage');
+const Skills = require('../models/Skills');
 const async = require('async');
 const { Sequelize } = require('sequelize');
 
@@ -34,7 +35,9 @@ exports.character = (req, res, next) => {
         include: [
             { model: Background },
             { model: Features, as: 'Features' },
-            { model: Lineage, as: 'LineageIdentifier' }]
+            { model: Lineage, as: 'LineageIdentifier' },
+            { model: Skills }], 
+            order: [[{ model: Skills }, 'Name', 'asc']]
     }).then((char) => {
         //console.log(char.LineageIdentifier);
         res.render("dndcard", {

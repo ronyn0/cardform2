@@ -1,9 +1,11 @@
+const { seq } = require("async");
 const { Sequelize, DataTypes } = require("sequelize");
 async = require('async');
 const sequelize = require('../database/sequelize');
 const Background = require('./Background');
 const Features = require('./Features');
 const Lineage = require('./Lineage');
+const Skills = require('./Skills');
 
 const CharacterInfo = sequelize.define("CharacterInfo", {
     CharID: {
@@ -96,10 +98,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
 },{
     classMethods: {
         associate:function(models) {
-            CharacterInfo.hasOne(models.Background, { foreignKey: 'BackgroundID' });
+            CharacterInfo.hasOne(models.Background, { foreignKey: 'BackgroundId' });
         },
         associate:function(models) {
-            CharacterInfo.hasMany(models.Features, { foreignKey: 'Class' });    
+            CharacterInfo.hasMany(models.Features, { foreignKey: 'CharID' });    
         },
         associate:function(models) {
             CharacterInfo.hasOne(models.Lineage, { foreignKey: 'CharID' });
@@ -107,7 +109,7 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
     }
 });
 CharacterInfo.hasOne(Background, {
-    foreignKey: 'BackgroundID'
+    foreignKey: 'BackgroundId'
 });
 CharacterInfo.hasOne(Lineage, {
     foreignKey: 'CharId',
@@ -115,17 +117,51 @@ CharacterInfo.hasOne(Lineage, {
     sourceKey: 'CharID'
 });
 CharacterInfo.hasMany(Features, {
-    foreignKey: 'Class',
-    sourceKey: 'Class'
-})
+    foreignKey: 'CharID',
+    sourceKey: 'CharID'
+});
 
+/* skills model
+const Skills = sequelize.define("Skills", {
+    SkillID: {
+        type: Sequelize.INTEGER,
+        allownull: true,
+        primaryKey: true,
+        foreignKey: true,
+        autoIncrement: true
+    },
+    Name: {
+        type: Sequelize.STRING,
+        allownull: false
+    },
+    IsProficient: {
+        type: Sequelize.BOOLEAN,
+        allownull: false
+    },
+    Attribute: { 
+        type: Sequelize.STRING,
+        allownull: false
+    }
+},{
+    freezeTableName: true
+});*/
 
+Skills.belongsToMany(CharacterInfo, { 
+    through: 'Char_Skills',
+    sourceKey: 'SkillID' });
+CharacterInfo.belongsToMany(Skills, { 
+    through: 'Char_Skills',
+    sourceKey: 'CharID' });
+
+//Skills.sync();
 // use .sync({ alter: true }) to update table
 CharacterInfo.sync().then(() => {
     console.log('Table Found!');
     }).catch((error) => {
     console.error('Unable to create table : ', error);
 });
+
+//sequelize.sync( { alter: true }); 
 
 /* create skrank in db for testing
 CharacterInfo.create({
@@ -147,7 +183,20 @@ CharacterInfo.create({
     console.log(user.get({ plain: true }));
 }).catch(err => {
     console.log(err);
+}); 
+
+const ath = Skills.create({ //jesus fucking christ chain promises
+    Name: 'Persuasion',
+    IsProficient: false,
+    Attribute: 'CHA'
+}).then(ath => {
+    const s = CharacterInfo.findOne({
+    where: { CharId: 1 }
+}).then(s => {
+    s.addSkills(ath);
 });
-*/
+});*/
 
 module.exports = CharacterInfo;
+
+//now clean all this shit up
