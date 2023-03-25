@@ -55,7 +55,7 @@ div.rounded li {
   line-height: 16pt;
 }
 
-div.features li a {
+div.features li a, div.features a {
   text-decoration: none;
   color:#65350F;
 }

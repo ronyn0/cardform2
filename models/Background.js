@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require("sequelize");
+const { Sequelize, DataTypes, SequelizeScopeError } = require("sequelize");
 async = require('async');
 const sequelize = require('../database/sequelize');
 const CharacterInfo = require('./CharacterInfo');
@@ -49,8 +49,12 @@ const Background = sequelize.define("Background", {
     Flaws: {
         type: Sequelize.STRING,
         allownull: true
+    },
+    BackgroundLink: {
+        type: Sequelize.STRING,
+        allownull: true
     }
-}, {
+},{
     freezeTableName: true
 },{
     classMethods: {
@@ -60,7 +64,7 @@ const Background = sequelize.define("Background", {
     }
 });
 
-Background.sync();
+Background.sync( { alter: true } );
 
 /* create test background in db for testing
 Background.create({

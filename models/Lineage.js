@@ -34,6 +34,10 @@ const Lineage = sequelize.define("Lineage", {
     Feature4: {
         type: Sequelize.STRING,
         allownull: true
+    },
+    LineageLink: {
+        type: Sequelize.STRING,
+        allownull: true
     }
 }, {
 freezeTableName: true

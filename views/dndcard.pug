@@ -5,7 +5,7 @@ block content
     div(class='grid')
       div(class='third')
         div(class='card')
-          p(class='largeText') Stats
+          p(class='largeText') Stats:
             div(class='rounded')
               div(class='stats')
                 p Strength: #{char_info.STR}
@@ -53,10 +53,12 @@ block content
           
       div(class='third')
         div(class='card')
-          p(class='largeText') Features
+          p(class='largeText') Features:
             div(class='stats')
               div(class='rounded')
-                p Lineage: #{char_info.Lineage}
+                div(class='features')
+                  p Lineage: 
+                    a(href=char_info.LineageIdentifier.LineageLink) #{char_info.Lineage}
                 ul 
                   if char_info.LineageIdentifier.Feature1 != ''
                     li #{char_info.LineageIdentifier.Feature1}
@@ -83,7 +85,9 @@ block content
                           div class features not found
               br
               div(class='rounded')
-                p Background: #{char_info.Background.BackgroundName}
+                div(class='features')
+                  p Background: 
+                    a(href=char_info.Background.BackgroundLink) #{char_info.Background.BackgroundName}
                 ul 
                   li #{char_info.Background.Feature1}
                   li #{char_info.Background.Feature2}
