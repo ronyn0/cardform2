@@ -1,25 +1,30 @@
-# cardform2
+## cardform2
+***
 
-testing more with express using mysql
+Testing more with express using mysql
 
-git url: https://github.com/ronyn0/cardform2/
-diagram site: https://app.diagrams.net/ 
+[Git respository](https://github.com/ronyn0/cardform2/)
 
-to-do:  get the mysql data into pug - done
-        translate the dndcards into pug - template done
-        make tables for dndcards and normalize character info (with models) - done
-        make dndcards data driven - in progress
-                CharacterInfo - done
-                Background - done (needs links)
-                Features - done
-                Lineage - done (needs links)
-                Proficiencies 
-        make the form for characters
-        make a home page that shows a random character
-        deploy to a server
+[Diagram site](https://app.diagrams.net/)
 
-to format code do ctrl+shift+i (like css)
+### To-Do List:
+1. Get the mysql data into pug - **done**
+2. Translate the dndcards into pug - **done**
+3. Make tables for dndcards and normalize character info (with models) - **done**
+4. Make dndcards data driven - in progress
+    - CharacterInfo - **done**
+    - Background - **done** (needs links)
+    - Features - **done**
+    - Lineage - **done** (needs links)
+    - Skill Proficiencies - **done**
+5. Make the form for characters
+6. Create a home page that shows a random character
+7. Deploy to a server
+    - Get an SSL cert
+8. Re-format readme - **done**
 
-to launch use npm run devstart
+### Reminders: 
+To format code press ctrl+shift+i (like css)
+To preview readme press ctrl+shift+v
 
-to-do: re-format readme
+To launch the application do $npm run devstart
