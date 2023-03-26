@@ -104,6 +104,7 @@ block content
                 div(class='features')
                   p Class Features: #{char_info.Class}
                   ul
+                    div #{sortFeatures(char_info.Features)}
                     each Feature in char_info.Features 
                       li
                         if Feature.SubClass == ''

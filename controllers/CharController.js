@@ -39,10 +39,14 @@ exports.character = (req, res, next) => {
             { model: Skills }], 
             order: [[{ model: Skills }, 'Name', 'asc']]
     }).then((char) => {
-        //console.log(char.LineageIdentifier);
+        console.log(char.Features[0]);
         res.render("dndcard", {
             title: char.Name, 
             char_info: char,
+            sortFeatures: function(a){
+                a.sort(function compareFn(a, b) { return a.Level - b.Level;})
+                //return a;
+              }
         })
     }).catch(function (err) {
         res.status(500);
