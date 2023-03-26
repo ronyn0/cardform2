@@ -119,9 +119,16 @@ block content
                 div(class='features')
                   p Background: 
                     a(href=char_info.Background.BackgroundLink) #{char_info.Background.BackgroundName}
-                ul 
-                  li #{char_info.Background.Feature1}
-                  li #{char_info.Background.Feature2}
-                  li Skill #1: #{char_info.Background.Skill1}
-                  li Skill #2: #{char_info.Background.Skill2}
+                  ul
+                    if(char_info.Background.Feature1 != '') 
+                      li 
+                        a(href=char_info.Background.Feature1Link) #{char_info.Background.Feature1}
+                    if(char_info.Background.Feature2 != '') 
+                      li 
+                        a(href=char_info.Background.Feature2Link) #{char_info.Background.Feature2}
+                    if(char_info.Background.Feature3 != '') 
+                      li 
+                        a(href=char_info.Background.Feature3Link) #{char_info.Background.Feature3}
+                    li Skill #1: #{char_info.Background.Skill1}
+                    li Skill #2: #{char_info.Background.Skill2}
               br

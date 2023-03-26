@@ -13,7 +13,7 @@ Testing more with express using mysql
 3. Make tables for dndcards and normalize character info (with models) - **done**
 4. Make dndcards data driven - in progress
     - CharacterInfo - **done**
-    - Background - **done** (needs links)
+    - Background - **done**
     - Features - **done**
     - Lineage - **done** (needs links)
     - Skill Proficiencies - **done**

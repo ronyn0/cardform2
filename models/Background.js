@@ -34,6 +34,18 @@ const Background = sequelize.define("Background", {
         type: Sequelize.STRING,
         allownull: true
     },
+    Feature1Link: {
+        type: Sequelize.STRING,
+        allownull: true
+    },
+    Feature2Link: {
+        type: Sequelize.STRING,
+        allownull: true
+    },
+    Feature3Link: {
+        type: Sequelize.STRING,
+        allownull: true
+    },
     Traits: {
         type: Sequelize.STRING,
         allownull: true
@@ -64,7 +76,8 @@ const Background = sequelize.define("Background", {
     }
 });
 
-Background.sync();
+Background.sync();  // no alter
+//Background.sync( {alter:true} );  // does alter
 
 /* create test background in db for testing
 Background.create({
