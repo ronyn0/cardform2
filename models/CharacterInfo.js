@@ -92,6 +92,14 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         type: Sequelize.STRING,
         allownull: true,
         defaultValue: 'images/test.jpg'
+    },
+    Save1: {
+        type: Sequelize.STRING,
+        allownull: true
+    },
+    Save2: {
+        type: Sequelize.STRING,
+        allownull: true
     }
 }, {
     freezeTableName: true
@@ -121,31 +129,6 @@ CharacterInfo.hasMany(Features, {
     sourceKey: 'CharID'
 });
 
-/* skills model
-const Skills = sequelize.define("Skills", {
-    SkillID: {
-        type: Sequelize.INTEGER,
-        allownull: true,
-        primaryKey: true,
-        foreignKey: true,
-        autoIncrement: true
-    },
-    Name: {
-        type: Sequelize.STRING,
-        allownull: false
-    },
-    IsProficient: {
-        type: Sequelize.BOOLEAN,
-        allownull: false
-    },
-    Attribute: { 
-        type: Sequelize.STRING,
-        allownull: false
-    }
-},{
-    freezeTableName: true
-});*/
-
 Skills.belongsToMany(CharacterInfo, { 
     through: 'Char_Skills',
     sourceKey: 'SkillID' });
@@ -153,14 +136,11 @@ CharacterInfo.belongsToMany(Skills, {
     through: 'Char_Skills',
     sourceKey: 'CharID' });
 
-//Skills.sync();
-// use .sync({ alter: true }) to update table
-CharacterInfo.sync().then(() => {
-    console.log('Table Found!');
-    }).catch((error) => {
-    console.error('Unable to create table : ', error);
-});
 
+CharacterInfo.sync(); //don't alter
+//CharacterInfo.sync({alter:true}); // do alter
+
+// true-up the whole database
 //sequelize.sync( { alter: true }); 
 
 /* create skrank in db for testing

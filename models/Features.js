@@ -43,8 +43,8 @@ const Features = sequelize.define("Features", {
     freezeTableName: true
 });
 
-Features.sync();
-
+Features.sync(); // don't alter table 
+//Features.sync( {alter:true} ); // do alter table
 /* add a feature to the db
 Features.create({
     Level: '3',
