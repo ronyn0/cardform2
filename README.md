@@ -15,7 +15,7 @@ Testing more with express using mysql
     - CharacterInfo - **done**
     - Background - **done**
     - Features - **done**
-    - Lineage - **done** (needs links)
+    - Lineage - **done**
     - Skill Proficiencies - **done**
 5. Make the form for characters
 6. Create a home page that shows a random character
