@@ -18,6 +18,11 @@ Testing more with express using mysql
     - Lineage - **done**
     - Skill Proficiencies - **done**
 5. Make the form for characters
+    - Handle validation in sequelize
+    - Make form template better
+    - CharacterInfo form
+    - Background form
+    - Lineage form
 6. Create a home page that shows a random character
 7. Deploy to a server
     - Get an SSL cert

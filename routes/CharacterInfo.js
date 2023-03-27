@@ -19,6 +19,13 @@ router.get("/about", function (req, res) {
 // Skrank test page route.
 //router.get("/skrank", CharacterInfo_Controller.skrank);
 
+// /create puts us through to the new char form
+router.get("/create", CharacterInfo_Controller.character_create_get);
+
+// /create post handles the form allegedly
+router.post("/create", CharacterInfo_Controller.character_create_post);
+
+// id is the id of a character to display
 router.get("/:id", CharacterInfo_Controller.character);
 
 // Export this route as a module so we can require it
