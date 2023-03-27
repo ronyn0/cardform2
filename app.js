@@ -6,6 +6,7 @@ var logger = require('morgan');
 var favicon = require('express-favicon');
 var wiki = require("./routes/wiki");
 var CharacterInfo = require("./routes/CharacterInfo");
+var fileUpload = require('express-fileupload');
 
 var con = require('./database/mydb');
 
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(__dirname + '/public/images/d20.png'));
+app.use(fileUpload());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

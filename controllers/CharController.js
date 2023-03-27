@@ -5,7 +5,10 @@ const Lineage = require('../models/Lineage');
 const Skills = require('../models/Skills');
 const async = require('async');
 const { Sequelize } = require('sequelize');
-const { body, validationResult } = require("express-validator");
+const { body, validationResult } = require('express-validator');
+const fs = require('fs');
+const fileUpload = require('express-fileupload');
+const path = require("path");
 
 // display homepage
 exports.index = (req, res, next) => {
@@ -19,6 +22,7 @@ exports.index = (req, res, next) => {
     //console.log(mycount); testing output from the function
 };
 
+/* test route 
 exports.skrank = (req, res, next) => {
     const char = CharacterInfo.findOne({
         where: { Name: 'Skrank' }
@@ -28,7 +32,7 @@ exports.skrank = (req, res, next) => {
             char_info: char,
         })
     });
-};
+}; */
 
 exports.character = (req, res, next) => {
     const char = CharacterInfo.findOne({
@@ -75,6 +79,23 @@ exports.character_create_post = [
         // Extract the validation errors from a request
         const errors = validationResult(req);
 
+        // file upload section
+        if (!req.files) {
+            //return res.status(400).send("No files were uploaded.");
+            console.log("No files uploaded");
+        }
+        const file = req.files.myFile;
+        const path = '/home/ron/Workspace/cardform2/public/images/' + file.name;
+
+        file.mv(path, (err) => {
+          if (err) {
+            return res.status(500).send(err);
+          }
+          // return res.send({ status: "success", path: path }); post success
+          res.render("char_form", { title: "File Uploaded" });
+        });
+      
+        
         // Create a character object with escaped and trimmed data
         // TO-DO sequelize create
 
@@ -89,6 +110,7 @@ exports.character_create_post = [
             // Data from the form is valid
             var newChar = CharacterInfo.build({
                 Name: req.body.name,
+                ImgLocation: '/images/' + file.name,
             });
             console.log(newChar.get({plain:true})); // looks like build works
             // Check if character with that name exists
@@ -128,6 +150,7 @@ exports.character_create_post = [
         }
 }];
 
+// Function to check if a character is unique
 function isUnique (id) {
     return CharacterInfo.count({ where: { Name: id } })
       .then(count => {

@@ -3,11 +3,34 @@ extends layout
 block content
   h1 #{title}
 
-  form(method='POST' action='')
-    div
-      label(for='name') Name:
+  form(method='POST' action='' enctype='multipart/form-data')
+    div(class='inputCard')
+      label(for='name') Character Name:
       input#name(type='text', placeholder='Bob' name='name')
-    button(type='submit') Submit
+      label(for='name') Player Name:
+      input#name(type='text', name='name')
+      label(for='name') Class:
+      input#name(type='text', name='name')
+      label(for='name') AC:
+      input#name(type='text', name='name')
+      label(for='name') Strength: 
+      input#name(type='text', name='name')
+      label(for='name') Dexterity: 
+      input#name(type='text', name='name')
+      label(for='name') Constitution: 
+      input#name(type='text', name='name')
+      label(for='name') Intelligence: 
+      input#name(type='text', name='name')
+      label(for='name') Wisdom:
+      input#name(type='text', name='name')
+      label(for='name') Charisma: 
+      input#name(type='text', name='name')
+      label(for='ImgLocation') Character Image: 
+      br
+      input#myFile(type='file' name='myFile')
+      br
+      br
+      button(type='submit') Submit
 
   if errors
    ul
