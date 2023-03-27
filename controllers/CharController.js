@@ -7,7 +7,6 @@ const async = require('async');
 const { Sequelize } = require('sequelize');
 const { body, validationResult } = require('express-validator');
 const fs = require('fs');
-const fileUpload = require('express-fileupload');
 const path = require("path");
 
 // display homepage
@@ -85,17 +84,22 @@ exports.character_create_post = [
             console.log("No files uploaded");
         }
         const file = req.files.myFile;
-        const path = '/home/ron/Workspace/cardform2/public/images/' + file.name;
+        const newPath = '/home/ron/Workspace/cardform2/public/images/' + file.name;
 
-        file.mv(path, (err) => {
-          if (err) {
-            return res.status(500).send(err);
-          }
-          // return res.send({ status: "success", path: path }); post success
-          res.render("char_form", { title: "File Uploaded" });
+        fs.readFile(newPath, (err, data) => {
+            if (!err && data) {
+                res.render("char_form", { title: "File already exists" });
+            } else {
+                file.mv(newPath, (err) => {
+                    if (err) {
+                      return res.status(500).send(err);
+                    }
+                    // return res.send({ status: "success", path: newPath }); post success
+                    res.render("char_form", { title: "File Uploaded" });
+                  });
+            }
         });
-      
-        
+
         // Create a character object with escaped and trimmed data
         // TO-DO sequelize create
 
