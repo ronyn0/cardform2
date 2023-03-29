@@ -8,7 +8,7 @@ const CharacterInfo_Controller = require("../controllers/CharController");
 
 // Home page route (localhost/wiki)
 router.get("/", function (req, res) {
-  res.render('dndcard', { title: 'Card Form' });
+  res.render('index', { title: 'Card Form' });
 });
 
 // About page route.

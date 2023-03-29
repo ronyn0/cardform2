@@ -3,21 +3,19 @@ const Background = require('../models/Background');
 const Features = require('../models/Features');
 const Lineage = require('../models/Lineage');
 const Skills = require('../models/Skills');
-const { Sequelize } = require('sequelize');
 const { body, validationResult } = require('express-validator');
 const fs = require('fs');
 
 // display homepage
 exports.index = (req, res, next) => {
-    var mycount = Customer.count().then((mycount) => {
+    //var mycount = Customer.count().then((mycount) => {
         //console.log(mycount);
         res.render("index", {
             title: "Card Form",
-            data: mycount,
+            //data: mycount,
         })
-    });
+    };
     //console.log(mycount); testing output from the function
-};
 
 /* test route 
 exports.skrank = (req, res, next) => {
