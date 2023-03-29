@@ -114,7 +114,19 @@ exports.character_create_post = [
             // Data from the form is valid
             var newChar = CharacterInfo.build({
                 Name: req.body.name,
+                PlayerName: req.body.playername,
+                Class: req.body.class,
+                Lineage: req.body.lineage,
+                Init: req.body.init,
+                AC: req.body.ac,
+                HP: req.body.hp,
                 ImgLocation: '/images/' + file.name,
+                STR: req.body.str,
+                DEX: req.body.dex,
+                CON: req.body.con,
+                INT: req.body.int,
+                WIS: req.body.wis,
+                CHA: req.body.cha,
             });
             console.log(newChar.get({plain:true})); // looks like build works
             // Check if character with that name exists

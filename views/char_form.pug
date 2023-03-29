@@ -5,32 +5,63 @@ block content
 
   form(method='POST' action='' enctype='multipart/form-data')
     div(class='inputCard')
-      label(for='name') Character Name:
-      input#name(type='text', placeholder='Bob' name='name')
-      label(for='name') Player Name:
-      input#name(type='text', name='name')
-      label(for='name') Class:
-      input#name(type='text', name='name')
-      label(for='name') AC:
-      input#name(type='text', name='name')
-      label(for='name') Strength: 
-      input#name(type='text', name='name')
-      label(for='name') Dexterity: 
-      input#name(type='text', name='name')
-      label(for='name') Constitution: 
-      input#name(type='text', name='name')
-      label(for='name') Intelligence: 
-      input#name(type='text', name='name')
-      label(for='name') Wisdom:
-      input#name(type='text', name='name')
-      label(for='name') Charisma: 
-      input#name(type='text', name='name')
-      label(for='ImgLocation') Character Image: 
-      br
-      input#myFile(type='file' name='myFile' class='uploadButton')
-      br
-      br
-      button(type='submit' class='buttonStyle') Submit
+      div(class='inputContainer')
+        label(for='name') Character Name:
+        input#name(type='text', placeholder='Bob' name='name')
+        label(for='playername') Player Name:
+        input#playername(type='text', name='playername')
+        label(for='class') Class:
+        input#class(type='text', name='class')
+        label(for='ac') AC:
+        input#ac(type='text', name='ac')
+        label(for='init') Initiative:
+        input#init(type='text', name='init')
+        label(for='lineage') Lineage:
+        input#lineage(type='text', name='lineage')
+        label(for='HP') HP:
+        input#hp(type='text', name='hp')
+      div(class='statContainer')
+        label(for='str' class='leftLabel') Strength: 
+        select#str(name='str' class='dropdownStyle')
+          -for(let i = 1; i <= 20; i++)
+            option(value=i) #{i}
+        br
+        br
+        label(for='con' class='leftLabel') Constitution: 
+        select#con(name='con' class='dropdownStyle')
+          -for(let i = 1; i <= 20; i++)
+            option(value=i) #{i}
+        br
+        br
+        label(for='name' class='leftLabel') Wisdom:
+        select#wis(name='wis' class='dropdownStyle')
+          -for(let i = 1; i <= 20; i++)
+            option(value=i) #{i}
+      div(class='statContainer')
+        label(for='name' class='rightLabel') Dexterity: 
+        select#dex(name='dex' class='dropdownStyle')
+          -for(let i = 1; i <= 20; i++)
+            option(value=i) #{i}
+        br
+        br
+        label(for='name' class='rightLabel') Intelligence: 
+        select#int(name='int' class='dropdownStyle')
+          -for(let i = 1; i <= 20; i++)
+            option(value=i) #{i}
+        br
+        br
+        label(for='name' class='rightLabel') Charisma: 
+        select#cha(name='cha' class='dropdownStyle')
+          -for(let i = 1; i <= 20; i++)
+            option(value=i) #{i}
+        br
+      div(class='inputContainer')  
+        label(for='ImgLocation') Character Image: 
+        br
+        input#myFile(type='file' name='myFile' class='uploadButton')
+        br
+        br
+        button(type='submit' class='buttonStyle') Submit
 
   if errors
    ul
