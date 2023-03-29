@@ -126,6 +126,7 @@ footer {
   position: fixed;
   bottom: 0pt;
   left: 0pt;
+  height:60px;
 }
 
 .footerbar {
@@ -176,6 +177,7 @@ div.inputCard {
   position: relative;
   box-sizing: inherit;
   background-color: #FFF;
+  margin-bottom:65px;
 }
 
 input[type=text] {
