@@ -5,6 +5,7 @@ colors:
   Background #9e9e9e
   Card #757575
   Footer #333
+  Button #ebd8c6
 */
 
 @font-face {
@@ -111,6 +112,7 @@ div.card {
   position: relative;
   width: 90%;
   box-sizing: inherit;
+  margin-bottom:70px;
 }
 
 footer {
@@ -177,7 +179,7 @@ div.inputCard {
   position: relative;
   box-sizing: inherit;
   background-color: #FFF;
-  margin-bottom:65px;
+  margin-bottom:70px;
 }
 
 input[type=text] {
@@ -187,14 +189,24 @@ input[type=text] {
   box-sizing: border-box;
 }
 
-input[type=button],
-input[type=submit],
-input[type=reset] {
-  background-color: #f1f1f1;
-  border: none;
-  color: white;
-  padding: 16px 32px;
+.buttonStyle {
+  background-color: #ebd8c6;
+  border:none;
+  color: #000;
+  padding: 8px 16px;
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+  z-index:999;
+  transition-duration: 0.4s;
+  font-size:12pt;
+}
+
+.buttonStyle:hover {
+  background-color:#FFF;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.uploadButton { 
+  padding:5px;
 }
