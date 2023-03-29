@@ -3,11 +3,9 @@ const Background = require('../models/Background');
 const Features = require('../models/Features');
 const Lineage = require('../models/Lineage');
 const Skills = require('../models/Skills');
-const async = require('async');
 const { Sequelize } = require('sequelize');
 const { body, validationResult } = require('express-validator');
 const fs = require('fs');
-const path = require("path");
 
 // display homepage
 exports.index = (req, res, next) => {
@@ -95,13 +93,13 @@ exports.character_create_post = [
                       return res.status(500).send(err);
                     }
                     // return res.send({ status: "success", path: newPath }); post success
-                    res.render("char_form", { title: "File Uploaded" });
+                    //res.render("char_form", { title: "File Uploaded" });
                   });
             }
         });
 
         // Create a character object with escaped and trimmed data
-        // TO-DO sequelize create
+        // TO-DO sequelize build + save
 
         if(!errors.isEmpty()) {
             // There are errors, render the form again 
@@ -136,23 +134,14 @@ exports.character_create_post = [
                     console.log("create character here");
                 }
                 if(!uniqueCheck) {  // redirect to found char
-                    //console.log("redirect to found char");
                     const char = CharacterInfo.findOne({
                         where: { Name: newChar.Name },
-                        include: [
-                            { model: Background },
-                            { model: Features, as: 'Features' },
-                            { model: Lineage, as: 'LineageIdentifier' },
-                            { model: Skills }], 
-                            order: [[{ model: Skills }, 'Name', 'asc']]
                     }).then((char) => {
-                        res.render("dndcard", {
-                            title: char.Name, 
-                            char_info: char,
-                            sortFeatures: function(a){
-                                a.sort(function compareFn(a, b) { return a.Level - b.Level;})
-                              }
-                        })
+                        res.redirect(301, '/CharacterInfo/' + char.CharID);
+                        fs.unlink('/home/ron/Workspace/cardform2/public/images/' + file.name, function(err){
+                            if(err) throw err;
+                            console.log('upload file deleted');
+                        });
                     }).catch(function (err) {
                         res.status(500);
                         res.render('error', {error: err}) //show the error info
