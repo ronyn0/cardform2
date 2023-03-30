@@ -8,14 +8,10 @@ const fs = require('fs');
 
 // display homepage
 exports.index = (req, res, next) => {
-    //var mycount = Customer.count().then((mycount) => {
-        //console.log(mycount);
-        res.render("index", {
-            title: "Card Form",
-            //data: mycount,
-        })
-    };
-    //console.log(mycount); testing output from the function
+    res.render("index", {
+        title: "Character Info",
+    })
+};
 
 /* test route 
 exports.skrank = (req, res, next) => {
@@ -36,20 +32,20 @@ exports.character = (req, res, next) => {
             { model: Background },
             { model: Features, as: 'Features' },
             { model: Lineage, as: 'LineageIdentifier' },
-            { model: Skills }], 
-            order: [[{ model: Skills }, 'Name', 'asc']]
+            { model: Skills }],
+        order: [[{ model: Skills }, 'Name', 'asc']]
     }).then((char) => {
         //console.log(char.Features[0]);
         res.render("dndcard", {
-            title: char.Name, 
+            title: char.Name,
             char_info: char,
-            sortFeatures: function(a){
-                a.sort(function compareFn(a, b) { return a.Level - b.Level;})
-              }
+            sortFeatures: function (a) {
+                a.sort(function compareFn(a, b) { return a.Level - b.Level; })
+            }
         })
     }).catch(function (err) {
         res.status(500);
-        res.render('error', {error: err}) //show the error info
+        res.render('error', { error: err }) //show the error info
         res.render('error', {
             message: 'Character not found',
             error: err,
@@ -66,7 +62,8 @@ exports.character_create_get = (req, res, next) => {
 // Handle character create on http POST request
 exports.character_create_post = [
     // Validates and sanitizes name field.
-    body("name", "Character name required").trim().isLength({min: 1
+    body("name", "Character name required").trim().isLength({
+        min: 1
     }).escape(),
 
     // Process request after validation and sanitation
@@ -88,25 +85,25 @@ exports.character_create_post = [
             } else {
                 file.mv(newPath, (err) => {
                     if (err) {
-                      return res.status(500).send(err);
+                        return res.status(500).send(err);
                     }
                     // return res.send({ status: "success", path: newPath }); post success
                     //res.render("char_form", { title: "File Uploaded" });
-                  });
+                });
             }
         });
 
         // Create a character object with escaped and trimmed data
         // TO-DO sequelize build + save
 
-        if(!errors.isEmpty()) {
+        if (!errors.isEmpty()) {
             // There are errors, render the form again 
             res.render("char_form", {
                 title: "Create Character",
                 errors: errors.array(),
             });
             return;
-        } else { 
+        } else {
             // Data from the form is valid
             var newChar = CharacterInfo.build({
                 Name: req.body.name,
@@ -124,25 +121,25 @@ exports.character_create_post = [
                 WIS: req.body.wis,
                 CHA: req.body.cha,
             });
-            console.log(newChar.get({plain:true})); // looks like build works
+            console.log(newChar.get({ plain: true })); // looks like build works
             // Check if character with that name exists
             isUnique(newChar.Name).then(uniqueCheck => {
-                if(uniqueCheck) { // if it is unique
+                if (uniqueCheck) { // if it is unique
                     // save character here and redirect
                     console.log("create character here");
                 }
-                if(!uniqueCheck) {  // redirect to found char
+                if (!uniqueCheck) {  // redirect to found char
                     const char = CharacterInfo.findOne({
                         where: { Name: newChar.Name },
                     }).then((char) => {
                         res.redirect(301, '/CharacterInfo/' + char.CharID);
-                        fs.unlink('/home/ron/Workspace/cardform2/public/images/' + file.name, function(err){
-                            if(err) throw err;
+                        fs.unlink('/home/ron/Workspace/cardform2/public/images/' + file.name, function (err) {
+                            if (err) throw err;
                             console.log('upload file deleted');
                         });
                     }).catch(function (err) {
                         res.status(500);
-                        res.render('error', {error: err}) //show the error info
+                        res.render('error', { error: err }) //show the error info
                         res.render('error', {
                             message: 'Character not found',
                             error: err,
@@ -151,16 +148,16 @@ exports.character_create_post = [
                 }
             })
         }
-}];
+    }];
 
 // Function to check if a character is unique
-function isUnique (id) {
+function isUnique(id) {
     return CharacterInfo.count({ where: { Name: id } })
-      .then(count => {
-        if (count != 0) {
-            //console.log("character found");
-            return false;
-        }
-        return true;
-    });
+        .then(count => {
+            if (count != 0) {
+                //console.log("character found");
+                return false;
+            }
+            return true;
+        });
 }
