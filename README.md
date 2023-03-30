@@ -11,18 +11,18 @@ Testing more with express using mysql
 1. Get the mysql data into pug - **done**
 2. Translate the dndcards into pug - **done**
 3. Make tables for dndcards and normalize character info (with models) - **done**
-4. Make dndcards data driven - in progress
+4. Make dndcards data driven - **done**
     - CharacterInfo - **done**
     - Background - **done**
     - Features - **done**
     - Lineage - **done**
     - Skill Proficiencies - **done**
-5. Make the form for characters
-    - Handle validation in sequelize
-    - Make form template better
-    - CharacterInfo form
-    - Background form
-    - Lineage form
+5. Make the form for characters - in progress
+    - Handle validation in sequelize - 
+    - Make form template better - **done**
+    - CharacterInfo form - **done**
+    - Background form - 
+    - Lineage form - 
 6. Create a home page that shows a random character
 7. Deploy to a server
     - Get an SSL cert
@@ -33,3 +33,5 @@ To format code press ctrl+shift+i (like css)
 To preview readme press ctrl+shift+v
 
 To launch the application do $npm run devstart
+
+Big problems become small problems, small problems become nothing
