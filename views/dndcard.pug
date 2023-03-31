@@ -109,51 +109,52 @@ block content
       div(class='third')
         div(class='card')
           p(class='largeText') Features:
-            div(class='stats')
-              div(class='rounded')
-                div(class='features')
-                  p Lineage: 
-                    a(href=char_info.LineageIdentifier.LineageLink) #{char_info.Lineage}
-                ul 
-                  if char_info.LineageIdentifier.Feature1 != ''
-                    li #{char_info.LineageIdentifier.Feature1}
-                  if char_info.LineageIdentifier.Feature2 != ''
-                    li #{char_info.LineageIdentifier.Feature2}
-                  if char_info.LineageIdentifier.Feature3 != ''
-                    li #{char_info.LineageIdentifier.Feature3}
-                  if char_info.LineageIdentifier.Feature4 != ''
-                    li #{char_info.LineageIdentifier.Feature4}
-              br
-              div(class='rounded')
-                div(class='features')
-                  p Class Features: #{char_info.Class}
-                  ul
-                    div #{sortFeatures(char_info.Features)}
-                    each Feature in char_info.Features 
-                      li
-                        if Feature.SubClass == ''
-                          div Level #{Feature.Level}. 
-                            a(href=Feature.Link) #{Feature.FeatureName}
-                        else if Feature.SubClass != ''
-                          div Level #{Feature.Level}. 
-                            a(href=Feature.Link) #{Feature.FeatureName} (#{Feature.SubClass})
-                        else 
-                          div class features not found
-              br
-              div(class='rounded')
-                div(class='features')
-                  p Background: 
-                    a(href=char_info.Background.BackgroundLink) #{char_info.Background.BackgroundName}
-                  ul
-                    if(char_info.Background.Feature1 != '') 
-                      li 
-                        a(href=char_info.Background.Feature1Link) #{char_info.Background.Feature1}
-                    if(char_info.Background.Feature2 != '') 
-                      li 
-                        a(href=char_info.Background.Feature2Link) #{char_info.Background.Feature2}
-                    if(char_info.Background.Feature3 != '') 
-                      li 
-                        a(href=char_info.Background.Feature3Link) #{char_info.Background.Feature3}
-                    li Skill #1: #{char_info.Background.Skill1}
-                    li Skill #2: #{char_info.Background.Skill2}
-              br
+            if(char_info.LineageIdentifier)
+              div(class='stats')
+                div(class='rounded')
+                  div(class='features')
+                    p Lineage: 
+                      a(href=char_info.LineageIdentifier.LineageLink) #{char_info.Lineage}
+                  ul 
+                    if char_info.LineageIdentifier.Feature1 != ''
+                      li #{char_info.LineageIdentifier.Feature1}
+                    if char_info.LineageIdentifier.Feature2 != ''
+                      li #{char_info.LineageIdentifier.Feature2}
+                    if char_info.LineageIdentifier.Feature3 != ''
+                      li #{char_info.LineageIdentifier.Feature3}
+                    if char_info.LineageIdentifier.Feature4 != ''
+                      li #{char_info.LineageIdentifier.Feature4}
+                br
+                div(class='rounded')
+                  div(class='features')
+                    p Class Features: #{char_info.Class}
+                    ul
+                      div #{sortFeatures(char_info.Features)}
+                      each Feature in char_info.Features 
+                        li
+                          if Feature.SubClass == ''
+                            div Level #{Feature.Level}. 
+                              a(href=Feature.Link) #{Feature.FeatureName}
+                          else if Feature.SubClass != ''
+                            div Level #{Feature.Level}. 
+                              a(href=Feature.Link) #{Feature.FeatureName} (#{Feature.SubClass})
+                          else 
+                            div class features not found
+                br
+                div(class='rounded')
+                  div(class='features')
+                    p Background: 
+                      a(href=char_info.Background.BackgroundLink) #{char_info.Background.BackgroundName}
+                    ul
+                      if(char_info.Background.Feature1 != '') 
+                        li 
+                          a(href=char_info.Background.Feature1Link) #{char_info.Background.Feature1}
+                      if(char_info.Background.Feature2 != '') 
+                        li 
+                          a(href=char_info.Background.Feature2Link) #{char_info.Background.Feature2}
+                      if(char_info.Background.Feature3 != '') 
+                        li 
+                          a(href=char_info.Background.Feature3Link) #{char_info.Background.Feature3}
+                      li Skill #1: #{char_info.Background.Skill1}
+                      li Skill #2: #{char_info.Background.Skill2}
+                br
