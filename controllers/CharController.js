@@ -98,10 +98,14 @@ exports.character_create_post = [
             });
             // looks like build works
             // Check if character with that name exists
+            var uniqueCheck;
             isUnique(newChar.Name).then(uniqueCheck => {
-                if (uniqueCheck && sqlzerrors.length > 0) { // if it is unique and no val errors
+                if (uniqueCheck && sqlzerrors.length < 1) { // if it is unique and no val errors
                     // save character here and redirect
-                    console.log("create character here");
+                    //console.log("create character here");
+                    console.log(newChar);
+                    newChar.save();
+                    console.log(newChar.Name + " was saved to db");
 
                     // file upload section
                     if (!req.files) {
@@ -124,6 +128,25 @@ exports.character_create_post = [
                             });
                         }
                     });
+                    // and redirect to new character
+                    const char = CharacterInfo.findOne({
+                        where: { Name: newChar.Name }
+                    }).then((char) => {
+                        res.render("dndcard", {
+                            title: char.Name,
+                            char_info: char,
+                            sortFeatures: function (a) {
+                                a.sort(function compareFn(a, b) { return a.Level - b.Level; })
+                            }
+                        })
+                    }).catch(function (err) {
+                        res.status(500);
+                        res.render('error', { error: err }) //show the error info
+                        res.render('error', {
+                            message: 'Character not found',
+                            error: err,
+                        });
+                    })
                 }
                 if (!uniqueCheck) {  // redirect to found char
                     const char = CharacterInfo.findOne({
