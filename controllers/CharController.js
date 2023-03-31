@@ -51,7 +51,6 @@ exports.character = (req, res, next) => {
             error: err,
         });
     })
-    //console.log(char.toJSON());
 };
 
 // Display character create form on http GET request
@@ -121,7 +120,16 @@ exports.character_create_post = [
                 WIS: req.body.wis,
                 CHA: req.body.cha,
             });
-            console.log(newChar.get({ plain: true })); // looks like build works
+            newChar.validate().then(newChar => {
+                console.log(newChar.get({ plain: true }));
+            }).catch(err => {
+                res.render("char_form", {
+                    title: "Create Character",
+                    errors: err.errors,
+                });
+                console.log(err);
+            });  
+            // looks like build works
             // Check if character with that name exists
             isUnique(newChar.Name).then(uniqueCheck => {
                 if (uniqueCheck) { // if it is unique

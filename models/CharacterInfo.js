@@ -19,7 +19,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         type: Sequelize.STRING,
         allownull: false,
         validate: {
-            isAlpha: true,
+            isAlpha: {
+                args:false,
+                msg: "Name can only contain letters."
+            },
         },
     },
     PlayerName: {

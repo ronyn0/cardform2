@@ -235,4 +235,5 @@ div.statContainer {
 }
 div.inputContainer {
   padding:10px;
+  display:inline-block;
 }
