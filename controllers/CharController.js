@@ -13,18 +13,6 @@ exports.index = (req, res, next) => {
     })
 };
 
-/* test route 
-exports.skrank = (req, res, next) => {
-    const char = CharacterInfo.findOne({
-        where: { Name: 'Skrank' }
-    }).then((char) => {
-        res.render("dndcard", {
-            title: char.Name, 
-            char_info: char,
-        })
-    });
-}; */
-
 exports.character = (req, res, next) => {
     const char = CharacterInfo.findOne({
         where: { CharID: req.params.id },
@@ -35,7 +23,6 @@ exports.character = (req, res, next) => {
             { model: Skills }],
         order: [[{ model: Skills }, 'Name', 'asc']]
     }).then((char) => {
-        //console.log(char.Features[0]);
         res.render("dndcard", {
             title: char.Name,
             char_info: char,
@@ -70,7 +57,7 @@ exports.character_create_post = [
         // Extract the validation errors from a request
         const errors = validationResult(req);
         const file = req.files.myFile;
-        var sqlzerrors = [];
+        var sqlzerrors = []; // validation errors
 
         // Create a character object with escaped and trimmed data
         // TO-DO sequelize build + save
@@ -101,13 +88,13 @@ exports.character_create_post = [
                 CHA: req.body.cha,
             });
             newChar.validate().then(newChar => {
-                console.log(newChar.get({ plain: true }));
+                console.log(newChar.get({ plain: true })); // print char if valid
             }).catch(sqlzerrors => {
                 res.render("char_form", {
                     title: "Create Character",
                     errors: sqlzerrors.errors,
                 });
-                console.log(sqlzerrors); // log validation errors 
+                //console.log(sqlzerrors); // log validation errors 
             });
             // looks like build works
             // Check if character with that name exists
@@ -121,7 +108,7 @@ exports.character_create_post = [
                         //return res.status(400).send("No files were uploaded.");
                         console.log("No files uploaded");
                     }
-                    
+
                     const newPath = '/home/ron/Workspace/cardform2/public/images/' + file.name;
 
                     fs.readFile(newPath, (err, data) => {
@@ -143,10 +130,6 @@ exports.character_create_post = [
                         where: { Name: newChar.Name },
                     }).then((char) => {
                         res.redirect(301, '/CharacterInfo/' + char.CharID);
-                        fs.unlink('/home/ron/Workspace/cardform2/public/images/' + file.name, function (err) {
-                            if (err) throw err;
-                            console.log('upload file deleted');
-                        });
                     }).catch(function (err) {
                         res.status(500);
                         res.render('error', { error: err }) //show the error info

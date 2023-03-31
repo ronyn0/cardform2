@@ -24,36 +24,54 @@ block content
         label(for='str' class='leftLabel') Strength: 
         select#str(name='str' class='dropdownStyle')
           -for(let i = 1; i <= 20; i++)
-            option(value=i) #{i}
+            if(i == 10)
+              option(value=i selected='selected') #{i}
+            else
+              option(value=i) #{i}
         br
         br
         label(for='con' class='leftLabel') Constitution: 
         select#con(name='con' class='dropdownStyle')
           -for(let i = 1; i <= 20; i++)
-            option(value=i) #{i}
+            if(i == 10)
+              option(value=i selected='selected') #{i}
+            else
+              option(value=i) #{i}
         br
         br
         label(for='name' class='leftLabel') Wisdom:
         select#wis(name='wis' class='dropdownStyle')
           -for(let i = 1; i <= 20; i++)
-            option(value=i) #{i}
+            if(i == 10)
+              option(value=i selected='selected') #{i}
+            else
+              option(value=i) #{i}
       div(class='statContainer')
         label(for='name' class='rightLabel') Dexterity: 
         select#dex(name='dex' class='dropdownStyle')
           -for(let i = 1; i <= 20; i++)
-            option(value=i) #{i}
+            if(i == 10)
+              option(value=i selected='selected') #{i}
+            else
+              option(value=i) #{i}
         br
         br
         label(for='name' class='rightLabel') Intelligence: 
         select#int(name='int' class='dropdownStyle')
           -for(let i = 1; i <= 20; i++)
-            option(value=i) #{i}
+            if(i == 10)
+              option(value=i selected='selected') #{i}
+            else
+              option(value=i) #{i}
         br
         br
         label(for='name' class='rightLabel') Charisma: 
         select#cha(name='cha' class='dropdownStyle')
           -for(let i = 1; i <= 20; i++)
-            option(value=i) #{i}
+            if(i == 10)
+              option(value=i selected='selected') #{i}
+            else
+              option(value=i) #{i}
         br
       div(class='inputContainer')  
         label(for='ImgLocation') Character Image: 
