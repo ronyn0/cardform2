@@ -17,16 +17,25 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
     },
     Name: {
         type: Sequelize.STRING,
-        allownull: false
+        allownull: false,
+        validate: {
+            isAlpha: true,
+        },
     },
     PlayerName: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isAlpha: true,
+        },
     },
     Class: {
         type: Sequelize.STRING,
         foreignKey: true,
-        allownull: false
+        allownull: false,
+        validate: {
+            isAlpha: true,
+        },
     },
     BackgroundID: {
         type: Sequelize.INTEGER,
@@ -41,52 +50,88 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
     AC: {
         type: Sequelize.INTEGER,
         allownull: true,
-        defaultValue: 10
+        defaultValue: 10,
+        validate: {
+            isInt: true,
+        },
     },
     Bonus: {
         type: Sequelize.INTEGER,
         allownull: true,
-        defaultValue: 2
+        defaultValue: 2,
+        validate: {
+            isInt: true,
+        },
     },
     STR: {
         type: Sequelize.INTEGER,
         allownull: false,
-        defaultValue: 10
+        defaultValue: 10,
+        validate: {
+            isInt: true,
+            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+        },
     },
     DEX: {
         type: Sequelize.INTEGER,
         allownull: false,
-        defaultValue: 10
+        defaultValue: 10,
+        validate: {
+            isInt: true,
+            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+        },
     },
     CON: {
         type: Sequelize.INTEGER,
         allownull: false,
-        defaultValue: 10
+        defaultValue: 10,
+        validate: {
+            isInt: true,
+            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+        },
     },
     INT: {
         type: Sequelize.INTEGER,
         allownull: false,
-        defaultValue: 10
+        defaultValue: 10,
+        validate: {
+            isInt: true,
+            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+        },
     },
     WIS: {
         type: Sequelize.INTEGER,
         allownull: false,
-        defaultValue: 10
+        defaultValue: 10,
+        validate: {
+            isInt: true,
+            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+        },
     },
     CHA: {
         type: Sequelize.INTEGER,
         allownull: false,
-        defaultValue: 10
+        defaultValue: 10,
+        validate: {
+            isInt: true,
+            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+        },
     },
     Init: {
         type: Sequelize.INTEGER,
         allownull: false,
-        defaultValue: 0
+        defaultValue: 0,
+        validate: {
+            isInt: true,
+        },
     },
     HP: {
         type: Sequelize.INTEGER,
         allownull: false,
-        defaultValue: 1
+        defaultValue: 1,
+        validate: {
+            isInt: true,
+        },
     },
     ImgLocation: {
         type: Sequelize.STRING,
