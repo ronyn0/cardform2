@@ -69,28 +69,8 @@ exports.character_create_post = [
     (req, res, next) => {
         // Extract the validation errors from a request
         const errors = validationResult(req);
-
-        // file upload section
-        if (!req.files) {
-            //return res.status(400).send("No files were uploaded.");
-            console.log("No files uploaded");
-        }
         const file = req.files.myFile;
-        const newPath = '/home/ron/Workspace/cardform2/public/images/' + file.name;
-
-        fs.readFile(newPath, (err, data) => {
-            if (!err && data) {
-                res.render("char_form", { title: "File already exists" });
-            } else {
-                file.mv(newPath, (err) => {
-                    if (err) {
-                        return res.status(500).send(err);
-                    }
-                    // return res.send({ status: "success", path: newPath }); post success
-                    //res.render("char_form", { title: "File Uploaded" });
-                });
-            }
-        });
+        var sqlzerrors = [];
 
         // Create a character object with escaped and trimmed data
         // TO-DO sequelize build + save
@@ -122,19 +102,41 @@ exports.character_create_post = [
             });
             newChar.validate().then(newChar => {
                 console.log(newChar.get({ plain: true }));
-            }).catch(err => {
+            }).catch(sqlzerrors => {
                 res.render("char_form", {
                     title: "Create Character",
-                    errors: err.errors,
+                    errors: sqlzerrors.errors,
                 });
-                console.log(err);
-            });  
+                console.log(sqlzerrors); // log validation errors 
+            });
             // looks like build works
             // Check if character with that name exists
             isUnique(newChar.Name).then(uniqueCheck => {
-                if (uniqueCheck) { // if it is unique
+                if (uniqueCheck && sqlzerrors.length > 0) { // if it is unique and no val errors
                     // save character here and redirect
                     console.log("create character here");
+
+                    // file upload section
+                    if (!req.files) {
+                        //return res.status(400).send("No files were uploaded.");
+                        console.log("No files uploaded");
+                    }
+                    
+                    const newPath = '/home/ron/Workspace/cardform2/public/images/' + file.name;
+
+                    fs.readFile(newPath, (err, data) => {
+                        if (!err && data) {
+                            res.render("char_form", { title: "File already exists" });
+                        } else {
+                            file.mv(newPath, (err) => {
+                                if (err) {
+                                    return res.status(500).send(err);
+                                }
+                                // return res.send({ status: "success", path: newPath }); post success
+                                //res.render("char_form", { title: "File Uploaded" });
+                            });
+                        }
+                    });
                 }
                 if (!uniqueCheck) {  // redirect to found char
                     const char = CharacterInfo.findOne({

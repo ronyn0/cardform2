@@ -29,7 +29,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         type: Sequelize.STRING,
         allownull: true,
         validate: {
-            isAlpha: true,
+            isAlpha: {
+                args:false,
+                msg: "Playername can only contain letters."
+            },
         },
     },
     Class: {
@@ -37,7 +40,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         foreignKey: true,
         allownull: false,
         validate: {
-            isAlpha: true,
+            isAlpha: {
+                args:false,
+                msg: "Class can only contain letters."
+            },
         },
     },
     BackgroundID: {
@@ -55,7 +61,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: true,
         defaultValue: 10,
         validate: {
-            isInt: true,
+            isInt: {
+                args:false,
+                msg: "AC can only contain numbers."
+            },
         },
     },
     Bonus: {
@@ -63,7 +72,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: true,
         defaultValue: 2,
         validate: {
-            isInt: true,
+            isInt: {
+                args:false,
+                msg: "Proficiency bonus can only contain numbers."
+            },
         },
     },
     STR: {
@@ -71,7 +83,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: false,
         defaultValue: 10,
         validate: {
-            isInt: true,
+            isInt: {
+                args:false,
+                msg: "Strength can only contain numbers 1-20."
+            },
             is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
@@ -80,7 +95,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: false,
         defaultValue: 10,
         validate: {
-            isInt: true,
+            isInt: {
+                args:false,
+                msg: "Decterity can only contain numbers 1-20."
+            },
             is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
@@ -89,7 +107,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: false,
         defaultValue: 10,
         validate: {
-            isInt: true,
+            isInt: {
+                args:false,
+                msg: "Constitution can only contain numbers 1-20."
+            },
             is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
@@ -98,7 +119,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: false,
         defaultValue: 10,
         validate: {
-            isInt: true,
+            isInt: {
+                args:false,
+                msg: "Intelligence can only contain numbers 1-20."
+            },
             is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
@@ -107,7 +131,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: false,
         defaultValue: 10,
         validate: {
-            isInt: true,
+            isInt: {
+                args:false,
+                msg: "Wisdom can only contain numbers 1-20."
+            },
             is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
@@ -116,7 +143,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: false,
         defaultValue: 10,
         validate: {
-            isInt: true,
+            isInt: {
+                args:false,
+                msg: "Charisma can only contain numbers 1-20."
+            },
             is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
@@ -125,7 +155,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: false,
         defaultValue: 0,
         validate: {
-            isInt: true,
+            isInt: {
+                args:false,
+                msg: "Initiative can only contain numbers."
+            },
         },
     },
     HP: {
@@ -133,7 +166,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: false,
         defaultValue: 1,
         validate: {
-            isInt: true,
+            isInt: {
+                args:false,
+                msg: "HP can only contain numbers."
+            },
         },
     },
     ImgLocation: {

@@ -63,8 +63,9 @@ block content
         br
         button(type='submit' class='buttonStyle') Submit
 
-  div(class='inputContainer')
-    if errors
-      ul
-        each error in errors
-          li!= error.message
+  if errors
+    div(class='inputCard')
+      div(class='inputContainer')      
+        ul
+          each error in errors
+            li!= error.message
