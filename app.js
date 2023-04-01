@@ -4,16 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var favicon = require('express-favicon');
-var wiki = require("./routes/wiki");
-var CharacterInfo = require("./routes/CharacterInfo");
 var fileUpload = require('express-fileupload');
 
-var con = require('./database/mydb');
-
+// Routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//Import routes for "catalog" area of site
-const catalogRouter = require('./routes/catalog');
+var CharacterInfo = require("./routes/CharacterInfo");
+var Lineage = require("./routes/Lineage");
+var wiki = require("./routes/wiki");
 
 var app = express();
 
@@ -33,8 +31,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/wiki', wiki);
 app.use('/CharacterInfo', CharacterInfo);
-// Add catalog routes to middleware chain.
-app.use("/catalog", catalogRouter); 
+app.use('/Lineage', Lineage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

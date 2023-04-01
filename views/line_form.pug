@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1 Lineage for: #{title}
+
+  form(method='POST' action='' enctype='multipart/form-data')
+    div(class='inputCard')
+      div(class='inputContainer')
+        label(for='playername') Character ID:
+        input#playername(type='text', name='playername' readonly, value=char_info.CharID)
+        label(for='name') Lineage Name:
+        input#name(type='text', placeholder='Bobmancer' name='name')
+        label(for='class') Class:
+        input#class(type='text', name='class')
+        label(for='ac') AC:
+        input#ac(type='text', name='ac')
+        label(for='init') Initiative:
+        input#init(type='text', name='init')
+        label(for='lineage') Lineage:
+        input#lineage(type='text', name='lineage')
+        label(for='HP') HP:
+        input#hp(type='text', name='hp')
+        br
+      div(class='inputContainer')
+        button(type='submit' class='buttonStyle') Submit
+
+  if errors
+    div(class='inputCard')
+      div(class='inputContainer')      
+        ul
+          each error in errors
+            li!= error.message

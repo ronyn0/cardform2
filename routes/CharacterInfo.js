@@ -20,6 +20,9 @@ router.get("/create", CharacterInfo_Controller.character_create_get);
 // Post handles the form
 router.post("/create", CharacterInfo_Controller.character_create_post);
 
+// Test creating a lineage to go with a character
+router.get("/lineage", CharacterInfo_Controller.character_create_lineage);
+
 // Finds a character and displays it (/CharacterInfo/:id)
 router.get("/:id", CharacterInfo_Controller.character);
 

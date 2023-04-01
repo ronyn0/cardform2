@@ -132,7 +132,7 @@ exports.character_create_post = [
                     const char = CharacterInfo.findOne({
                         where: { Name: newChar.Name }
                     }).then((char) => {
-                        res.render("dndcard", {
+                        res.render("line_form", {
                             title: char.Name,
                             char_info: char,
                             sortFeatures: function (a) {
@@ -165,6 +165,25 @@ exports.character_create_post = [
             })
         }
     }];
+
+// testing lineage create form on http get request 
+exports.character_create_lineage = (req, res, next) => {
+    const char = CharacterInfo.findOne({
+        where: { CharID: 2 },
+    }).then((char) => {
+        res.render("line_form", {
+            title: char.Name,
+            char_info: char
+        })
+    }).catch(function (err) {
+        res.status(500);
+        res.render('error', { error: err }) //show the error info
+        res.render('error', {
+            message: 'Character not found',
+            error: err,
+        });
+    })
+};
 
 // Function to check if a character is unique
 function isUnique(id) {
