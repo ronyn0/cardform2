@@ -18,7 +18,7 @@ Testing more with express using mysql
     - Lineage - **done**
     - Skill Proficiencies - **done**
 5. Make the form for characters - in progress
-    - Handle validation in sequelize - 
+    - Handle validation in sequelize - in progress
     - Make form template better - **done**
     - CharacterInfo form - **done**
     - Background form - 
