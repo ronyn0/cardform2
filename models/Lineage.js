@@ -13,11 +13,23 @@ const Lineage = sequelize.define("Lineage", {
     CharId: {
         type: Sequelize.INTEGER,
         allownull: true,
-        foreignKey: true
+        foreignKey: true,
+        validate: {
+            isNumeric: {
+                args:false,
+                msg: "CharID can only contain numbers."
+            },
+        },
     },
     LineageName: {
         type: Sequelize.STRING,
-        allownull: false
+        allownull: false,
+        validate: {
+            isAlpha: {
+                args:false,
+                msg: "Lineage Name can only contain letters."
+            },
+        },
     },
     Feature1: {
         type: Sequelize.STRING,
@@ -37,7 +49,13 @@ const Lineage = sequelize.define("Lineage", {
     },
     LineageLink: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isURL: {
+                args:false,
+                msg: "Link must be a url."
+            },
+        },
     }
 }, {
 freezeTableName: true

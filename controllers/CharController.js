@@ -6,13 +6,14 @@ const Skills = require('../models/Skills');
 const { body, validationResult } = require('express-validator');
 const fs = require('fs');
 
-// display homepage
+// Display homepage
 exports.index = (req, res, next) => {
     res.render("index", {
         title: "Character Info",
     })
 };
 
+// Display a character page
 exports.character = (req, res, next) => {
     const char = CharacterInfo.findOne({
         where: { CharID: req.params.id },

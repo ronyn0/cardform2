@@ -125,6 +125,7 @@ block content
                     if char_info.LineageIdentifier.Feature4 != ''
                       li #{char_info.LineageIdentifier.Feature4}
                 br
+              if(char_info.Features)
                 div(class='rounded')
                   div(class='features')
                     p Class Features: #{char_info.Class}
@@ -141,6 +142,7 @@ block content
                           else 
                             div class features not found
                 br
+              if(char_info.Background)
                 div(class='rounded')
                   div(class='features')
                     p Background: 

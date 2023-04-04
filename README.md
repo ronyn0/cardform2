@@ -23,6 +23,7 @@ Testing more with express using mysql
     - CharacterInfo form - **done**
     - Background form - 
     - Lineage form - 
+    - Include links to the forms for characters that need them
 6. Create a home page that shows a random character
 7. Deploy to a server
     - Get an SSL cert

@@ -1,4 +1,3 @@
-const { seq } = require("async");
 const { Sequelize, DataTypes } = require("sequelize");
 async = require('async');
 const sequelize = require('../database/sequelize');
@@ -187,7 +186,7 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
     }
 }, {
     freezeTableName: true
-},{
+}, {
     classMethods: {
         associate:function(models) {
             CharacterInfo.hasOne(models.Background, { foreignKey: 'BackgroundId' });
