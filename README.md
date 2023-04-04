@@ -22,9 +22,11 @@ Testing more with express using mysql
     - Make form template better - **done**
     - CharacterInfo form - **done**
     - Background form - 
-    - Lineage form - 
-    - Include links to the forms for characters that need them
+    - Lineage form - **done**
+    - Make a generic create lineage section - might not be necessary
+    - Include links to the forms for characters that have empty sections - later on
 6. Create a home page that shows a random character
+    - Make a card select page for CharacterInfo index
 7. Deploy to a server
     - Get an SSL cert
 8. Re-format readme - **done**
@@ -35,4 +37,4 @@ To preview readme press ctrl+shift+v
 
 To launch the application do $npm run devstart
 
-Big problems become small problems, small problems become nothing
+Big problems become small problems, small problems become nothing.
