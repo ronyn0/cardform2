@@ -23,6 +23,8 @@ Testing more with express using mysql
     - CharacterInfo form - **done**
     - Background form - 
     - Lineage form - **done**
+    - Skill form - 
+    - Class Feature form - 
     - Make a generic create lineage section - might not be necessary
     - Include links to the forms for characters that have empty sections - later on
 6. Create a home page that shows a random character
