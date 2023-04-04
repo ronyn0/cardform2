@@ -1,8 +1,5 @@
 const CharacterInfo = require('../models/CharacterInfo');
-const Background = require('../models/Background');
-const Features = require('../models/Features');
 const Lineage = require('../models/Lineage');
-const Skills = require('../models/Skills');
 const { body, validationResult } = require('express-validator');
 
 // display homepage
