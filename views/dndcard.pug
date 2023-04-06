@@ -125,7 +125,16 @@ block content
                     if char_info.LineageIdentifier.Feature4 != ''
                       li #{char_info.LineageIdentifier.Feature4}
                 br
-            if(char_info.Features)
+            else
+              br 
+              div(class='rounded')
+                div(class='features')
+                  p Lineage: Not listed.
+                  button(onclick='window.location.href="/Lineage/Create"' class='buttonStyle') Create
+                  br
+                  br
+
+            if(char_info.Features.length > 0)
               div(class='rounded')
                 div(class='features')
                   p Class Features: #{char_info.Class}
@@ -144,7 +153,11 @@ block content
               br
             else 
               div(class='rounded')
-                p no class features listed
+                div(class='features')
+                  p Class Features: Not listed.
+                  button(onclick='window.location.href="/Features/Create"' class='buttonStyle') Create
+                  br
+                  br
                 
             if(char_info.Background)
               div(class='rounded')
