@@ -38,5 +38,7 @@ To format code press ctrl+shift+i (like css)
 To preview readme press ctrl+shift+v
 
 To launch the application do $npm run devstart
+if node says the port is in use do $ lsof -i tcp:3000 to find the process
+and use $ kill -9 PID to end it
 
 Big problems become small problems, small problems become nothing.
