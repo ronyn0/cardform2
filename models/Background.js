@@ -12,7 +12,13 @@ const Background = sequelize.define("Background", {
     },
     BackgroundName: {
         type: Sequelize.STRING,
-        allownull: false
+        allownull: false,
+        validate: {
+            isAlpha: {
+                args:false,
+                msg: "Background Name can only contain letters."
+            },
+        },
     },
     Skill1: {
         type: Sequelize.STRING,
