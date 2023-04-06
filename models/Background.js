@@ -1,7 +1,6 @@
 const { Sequelize, DataTypes, SequelizeScopeError } = require("sequelize");
 async = require('async');
 const sequelize = require('../database/sequelize');
-const CharacterInfo = require('./CharacterInfo');
 
 const Background = sequelize.define("Background", {
     BackgroundId: {
@@ -15,68 +14,146 @@ const Background = sequelize.define("Background", {
         allownull: false,
         validate: {
             isAlpha: {
-                args:false,
+                args: false,
                 msg: "Background Name can only contain letters."
             },
         },
     },
     Skill1: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isAlpha: {
+                args: false,
+                msg: "Skill can only contain letters."
+            },
+        },
     },
     Skill2: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isAlpha: {
+                args: false,
+                msg: "Skill can only contain letters."
+            },
+        },
     },
     Feature1: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isAlpha: {
+                args: false,
+                msg: "Feature 1 can only contain letters."
+            },
+        },
     },
     Feature2: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isAlpha: {
+                args: false,
+                msg: "Feature 2 can only contain letters."
+            },
+        },
     },
     Feature3: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isAlpha: {
+                args: false,
+                msg: "Feature 3 can only contain letters."
+            },
+        },
     },
     Feature1Link: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isURL: {
+                args: false,
+                msg: "Links must be a URL."
+            },
+        },
     },
     Feature2Link: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isURL: {
+                args: false,
+                msg: "Links must be a URL."
+            },
+        },
     },
     Feature3Link: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isURL: {
+                args: false,
+                msg: "Links must be a URL."
+            },
+        },
     },
     Traits: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isAlpha: {
+                args: false,
+                msg: "Traits can only contain letters."
+            },
+        },
     },
     Ideals: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isAlpha: {
+                args: false,
+                msg: "Ideals can only contain letters."
+            },
+        },
     },
     Bonds: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isAlpha: {
+                args: false,
+                msg: "Bonds can only contain letters."
+            },
+        },
     },
     Flaws: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isAlpha: {
+                args: false,
+                msg: "Flaws can only contain letters."
+            },
+        },
     },
     BackgroundLink: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isURL: {
+                args: false,
+                msg: "Links must be a URL."
+            },
+        },
     }
-},{
+}, {
     freezeTableName: true
-},{
+}, {
     classMethods: {
-        associate:function(models) {
+        associate: function (models) {
             Background.belongsTo(models.CharacterInfo, { foreignKey: 'BackgroundId' });
         }
     }
