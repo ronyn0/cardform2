@@ -13,6 +13,7 @@ var CharacterInfo = require("./routes/CharacterInfo");
 var Lineage = require("./routes/Lineage");
 var wiki = require("./routes/wiki");
 var Background = require("./routes/Background");
+var Features = require("./routes/Features");
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use('/wiki', wiki);
 app.use('/CharacterInfo', CharacterInfo);
 app.use('/Lineage', Lineage);
 app.use('/Background', Background);
+app.use('/Features', Features);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

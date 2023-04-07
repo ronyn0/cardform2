@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  h1 Features for: #{title}
+
+  form(method='POST' action='' enctype='multipart/form-data')
+    div(class='inputCard')
+      div(class='inputContainer')
+        label(for='CharID') Character ID:
+        input#CharID(type='text', name='CharID' readonly, value=char_info.CharID)
+
+        label(for='name') Background Name:
+        input#name(type='text', placeholder='Bobsmith' name='name')
+
+        label(for='backgroundLink') Background Link:
+        input#backgroundLink(type='text', name='backgroundLink')
+
+        label(for='skill1') Skill 1:
+        input#skill1(type='text', name='skill1')
+
+        label(for='skill2') Skill 2:
+        input#skill2(type='text', name='skill2')
+
+        label(for='feature1') Feature 1:
+        input#feature1(type='text', name='feature1')
+
+        label(for='feature1Link') Feature 1 Link:
+        input#feature1Link(type='text', name='feature1Link')
+
+        label(for='feature2') Feature 2:
+        input#feature2(type='text', name='feature2')
+
+        label(for='feature2Link') Feature 2 Link:
+        input#feature2Link(type='text', name='feature2Link')
+
+        label(for='feature3') Feature 3:
+        input#feature3(type='text', name='feature3')
+
+        label(for='feature3Link') Feature 2 Link:
+        input#feature3Link(type='text', name='feature3Link')
+
+        label(for='traits') Traits:
+        input#traits(type='text', name='traits')
+
+        label(for='ideals') Ideals:
+        input#ideals(type='text', name='ideals')
+
+        label(for='bonds') Bonds:
+        input#bonds(type='text', name='bonds')
+
+        label(for='flaws') Flaws:
+        input#flaws(type='text', name='flaws')
+        br
+
+      div(class='inputContainer')
+        button(type='submit' class='buttonStyle') Submit
+
+  if errors
+    div(class='inputCard')
+      div(class='inputContainer')
+        p Errors: 
+        ul
+          each error in errors
+            li!= error.message
