@@ -97,6 +97,9 @@ block content
                       li 
                         b #{Skill.Name}: #{((char_info.CHA - 10)/2) + pro}
             br
+          if(!char_info.Skills.length > 0)
+            p No Skills listed
+            button(onclick='window.location.href="/Skills/Create"' class='buttonStyle') Create
 
       div(class='third')
         div(class='card')
