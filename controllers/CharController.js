@@ -24,6 +24,7 @@ exports.character = (req, res, next) => {
             { model: Skills }],
         order: [[{ model: Skills }, 'Name', 'asc']]
     }).then((char) => {
+        console.log(char.get({ plain: true }));
         res.render("dndcard", {
             title: char.Name,
             char_info: char,

@@ -29,9 +29,12 @@ Testing more with express using mysql
     - Include links to the forms for characters that have empty sections - later on
 6. Create a home page that shows a random character
     - Make a card select page for CharacterInfo index
-7. Deploy to a server
+7. Make a login and account section, assign owners to characters
+    - Owner, group all permission structure, all can view
+    - Admin group can edit all the pages
+8. Deploy to a server
     - Get an SSL cert
-8. Re-format readme - **done**
+9. Re-format readme - **done**
 
 ### Reminders: 
 To format code press ctrl+shift+i (like css)

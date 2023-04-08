@@ -200,7 +200,8 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
     }
 });
 CharacterInfo.hasOne(Background, {
-    foreignKey: 'BackgroundId'
+    foreignKey: 'BackgroundId',
+    sourceKey: 'BackgroundID'
 });
 CharacterInfo.hasOne(Lineage, {
     foreignKey: 'CharId',
@@ -215,13 +216,13 @@ CharacterInfo.hasMany(Features, {
 Skills.belongsToMany(CharacterInfo, { 
     through: 'Char_Skills',
     sourceKey: 'SkillID' });
+
 CharacterInfo.belongsToMany(Skills, { 
     through: 'Char_Skills',
     sourceKey: 'CharID' });
 
-
-CharacterInfo.sync(); //don't alter
-//CharacterInfo.sync({alter:true}); // do alter
+//CharacterInfo.sync(); //don't alter
+CharacterInfo.sync({alter:true}); // do alter
 
 // true-up the whole database
 //sequelize.sync( { alter: true }); 

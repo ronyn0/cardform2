@@ -13,8 +13,8 @@ const Background = sequelize.define("Background", {
         type: Sequelize.STRING,
         allownull: false,
         validate: {
-            isAlpha: {
-                args: false,
+            is: {
+                args: /^[a-z ]+$/i, // string contains letters and spaces
                 msg: "Background Name can only contain letters."
             },
         },
@@ -23,9 +23,9 @@ const Background = sequelize.define("Background", {
         type: Sequelize.STRING,
         allownull: true,
         validate: {
-            isAlpha: {
-                args: false,
-                msg: "Skill can only contain letters."
+            is: {
+                args: /^[a-z ]+$/i, // string contains letters and spaces
+                msg: "Skills can only contain letters."
             },
         },
     },
@@ -33,9 +33,9 @@ const Background = sequelize.define("Background", {
         type: Sequelize.STRING,
         allownull: true,
         validate: {
-            isAlpha: {
-                args: false,
-                msg: "Skill can only contain letters."
+            is: {
+                args: /^[a-z ]+$/i, // string contains letters and spaces
+                msg: "Skills can only contain letters."
             },
         },
     },
@@ -43,8 +43,8 @@ const Background = sequelize.define("Background", {
         type: Sequelize.STRING,
         allownull: true,
         validate: {
-            isAlpha: {
-                args: false,
+            is: {
+                args: /^[a-z ]+$/i, // string contains letters and spaces
                 msg: "Feature 1 can only contain letters."
             },
         },
@@ -53,21 +53,15 @@ const Background = sequelize.define("Background", {
         type: Sequelize.STRING,
         allownull: true,
         validate: {
-            isAlpha: {
-                args: false,
+            is: {
+                args: /^[a-z ]+$/i, // string contains letters and spaces
                 msg: "Feature 2 can only contain letters."
             },
         },
     },
     Feature3: {
         type: Sequelize.STRING,
-        allownull: true,
-        validate: {
-            isAlpha: {
-                args: false,
-                msg: "Feature 3 can only contain letters."
-            },
-        },
+        allownull: true
     },
     Feature1Link: {
         type: Sequelize.STRING,
@@ -75,7 +69,7 @@ const Background = sequelize.define("Background", {
         validate: {
             isURL: {
                 args: false,
-                msg: "Links must be a URL."
+                msg: "Feature 1 Links must be a URL."
             },
         },
     },
@@ -85,27 +79,21 @@ const Background = sequelize.define("Background", {
         validate: {
             isURL: {
                 args: false,
-                msg: "Links must be a URL."
+                msg: "Feature 2 Links must be a URL."
             },
         },
     },
     Feature3Link: {
         type: Sequelize.STRING,
-        allownull: true,
-        validate: {
-            isURL: {
-                args: false,
-                msg: "Links must be a URL."
-            },
-        },
+        allownull: true
     },
     Traits: {
         type: Sequelize.STRING,
         allownull: true,
         validate: {
-            isAlpha: {
-                args: false,
-                msg: "Traits can only contain letters."
+            len: {
+                args: [0, 255],
+                msg: "Traits must be shorter than 255 characters."
             },
         },
     },
@@ -113,9 +101,9 @@ const Background = sequelize.define("Background", {
         type: Sequelize.STRING,
         allownull: true,
         validate: {
-            isAlpha: {
-                args: false,
-                msg: "Ideals can only contain letters."
+            len: {
+                args: [0, 255],
+                msg: "Ideals must be shorter than 255 characters."
             },
         },
     },
@@ -123,9 +111,9 @@ const Background = sequelize.define("Background", {
         type: Sequelize.STRING,
         allownull: true,
         validate: {
-            isAlpha: {
-                args: false,
-                msg: "Bonds can only contain letters."
+            len: {
+                args: [0, 255],
+                msg: "Bonds must be shorter than 255 characters."
             },
         },
     },
@@ -133,9 +121,9 @@ const Background = sequelize.define("Background", {
         type: Sequelize.STRING,
         allownull: true,
         validate: {
-            isAlpha: {
-                args: false,
-                msg: "Flaws can only contain letters."
+            len: {
+                args: [0, 255],
+                msg: "Flaws must be shorter than 255 characters."
             },
         },
     },
@@ -145,7 +133,7 @@ const Background = sequelize.define("Background", {
         validate: {
             isURL: {
                 args: false,
-                msg: "Links must be a URL."
+                msg: "Background Links must be a URL."
             },
         },
     }
@@ -154,12 +142,12 @@ const Background = sequelize.define("Background", {
 }, {
     classMethods: {
         associate: function (models) {
-            Background.belongsTo(models.CharacterInfo, { foreignKey: 'BackgroundId' });
+            Background.belongsTo(models.CharacterInfo, { foreignKey: 'BackgroundID' });
         }
     }
 });
 
-Background.sync();  // no alter
+//Background.sync();  // no alter
 //Background.sync( {alter:true} );  // does alter
 
 /* create test background in db for testing
