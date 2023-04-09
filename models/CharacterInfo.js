@@ -222,7 +222,7 @@ CharacterInfo.belongsToMany(Skills, {
     sourceKey: 'CharID' });
 
 //CharacterInfo.sync(); //don't alter
-CharacterInfo.sync({alter:true}); // do alter
+//CharacterInfo.sync({alter:true}); // do alter
 
 // true-up the whole database
 //sequelize.sync( { alter: true }); 

@@ -238,3 +238,9 @@ div.inputContainer {
   padding: 10px;
   display: inline-block;
 }
+
+div.skillForm {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
