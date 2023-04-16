@@ -9,38 +9,22 @@ block content
       div(class='inputContainer')
         label(for='CharID') Character ID:
         input#CharID(type='text', name='CharID' readonly, value=char_info.CharID)
-        fieldset 
-          legend Acrobatics:
-          div(class='skillForm')
-            input(type="radio" id="Acrobatics" name="Acrobatics" value="0" checked)
-            label(for='Acrobtics1') Not proficient:&nbsp;
-            input(type="radio" id="Acrobatics" name="Acrobatics" value="1")
-            label(for='Acrobtics2') Proficient:
-        br
-        fieldset 
-          legend Animal Handling:
-          div(class='skillForm')
-            input(type="radio" id="AnimalHandling" name="AnimalHandling" value="0" checked)
-            label(for='AnimalHandling1') Not proficient:&nbsp;
-            input(type="radio" id="AnimalHandling" name="AnimalHandling" value="1")
-            label(for='AnimalHandling2') Proficient:
-        br
-        fieldset 
-          legend Arcana:
-          div(class='skillForm')
-            input(type="radio" id="Arcana" name="Arcana" value="0" checked)
-            label(for='Arcana1') Not proficient:&nbsp;
-            input(type="radio" id="Arcana" name="Arcana" value="1")
-            label(for='Arcana2') Proficient:
-        br
-        fieldset 
-          legend Athletics:
-          div(class='skillForm')
-            input(type="radio" id="Athletics" name="Athletics" value="0" checked)
-            label(for='Athletics1') Not proficient:&nbsp;
-            input(type="radio" id="Athletics" name="Athletics" value="1")
-            label(for='Athletics2') Proficient:
-        br
+        div(class='skillForm')
+          label(class='container' for='Acrobatics') Acrobatics
+            input(type='checkbox' id='Acrobatics' name='Acrobatics' value='1')
+            span(class='checkmark')
+        div(class='skillForm')
+          label(class='container' for='AnimalHandling') Animal Handling
+            input(type='checkbox' id='AnimalHandling' name='AnimalHandling' value='1')
+            span(class='checkmark')
+        div(class='skillForm')
+          label(class='container' for='Arcana') Arcana
+            input(type='checkbox' id='Arcana' name='Arcana' value='1')
+            span(class='checkmark')
+        div(class='skillForm')
+          label(class='container' for='Athletics') Athletics
+            input(type='checkbox' id='Athletics' name='Athletics' value='1')
+            span(class='checkmark')
       
       div(class='inputContainer')
         button(type='submit' class='buttonStyle') Submit

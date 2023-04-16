@@ -36,7 +36,7 @@ exports.skill_create_post = (req, res, next) => {
             IsProficient: req.body.Acrobatics,
             Attribute: 'DEX'
         }).then((Acrobatics) => {
-            //console.log(Acrobatics); // log the built skill
+            //console.log(req.body.Acrobatics); // log the built skill
             char.addSkill(Acrobatics);
         });
         var AnimalHandling = Skills.create({
@@ -52,7 +52,7 @@ exports.skill_create_post = (req, res, next) => {
             IsProficient: req.body.Arcana,
             Attribute: 'INT'
         }).then((Arcana) => {
-            console.log(Arcana); // log the built skill
+            //console.log(Arcana); // log the built skill
             char.addSkill(Arcana);
         });
         var Athletics = Skills.create({

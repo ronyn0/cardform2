@@ -17,7 +17,8 @@ const Skills = sequelize.define("Skills", {
     },
     IsProficient: {
         type: Sequelize.BOOLEAN,
-        allownull: false
+        allownull: false,
+        defaultValue: 0
     },
     Attribute: { 
         type: Sequelize.STRING,
