@@ -9,47 +9,32 @@ block content
         label(for='CharID') Character ID:
         input#CharID(type='text', name='CharID' readonly, value=char_info.CharID)
 
-        label(for='name') Background Name:
-        input#name(type='text', placeholder='Bobsmith' name='name')
+        label(for='name') Feature Name:
+        input#name(type='text', placeholder='Bobmancer' name='name')
 
-        label(for='backgroundLink') Background Link:
-        input#backgroundLink(type='text', name='backgroundLink')
+        div(class='statContainer')
+          label(for='level') Level: 
+          select#level(name='level' class='dropdownStyle2')
+            -for(let i = 1; i <= 20; i++)
+              if(i == 1)
+                option(value=i selected='selected') #{i}
+              else
+                option(value=i) #{i}
+        br
+        br
 
-        label(for='skill1') Skill 1:
-        input#skill1(type='text', name='skill1')
+        label(for='class') Class:
+        input#class(type='text', name='class')
 
-        label(for='skill2') Skill 2:
-        input#skill2(type='text', name='skill2')
+        label(for='subclass') Sub Class: (if applicable)
+        input#subclass(type='text', name='subclass')
 
-        label(for='feature1') Feature 1:
-        input#feature1(type='text', name='feature1')
+        label(for='description') Description:
+        input#description(type='text', name='description')
 
-        label(for='feature1Link') Feature 1 Link:
-        input#feature1Link(type='text', name='feature1Link')
+        label(for='link') Link:
+        input#link(type='text', name='link')
 
-        label(for='feature2') Feature 2:
-        input#feature2(type='text', name='feature2')
-
-        label(for='feature2Link') Feature 2 Link:
-        input#feature2Link(type='text', name='feature2Link')
-
-        label(for='feature3') Feature 3:
-        input#feature3(type='text', name='feature3')
-
-        label(for='feature3Link') Feature 2 Link:
-        input#feature3Link(type='text', name='feature3Link')
-
-        label(for='traits') Traits:
-        input#traits(type='text', name='traits')
-
-        label(for='ideals') Ideals:
-        input#ideals(type='text', name='ideals')
-
-        label(for='bonds') Bonds:
-        input#bonds(type='text', name='bonds')
-
-        label(for='flaws') Flaws:
-        input#flaws(type='text', name='flaws')
         br
 
       div(class='inputContainer')
