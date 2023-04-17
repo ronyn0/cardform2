@@ -24,7 +24,7 @@ exports.character = (req, res, next) => {
             { model: Skills }],
         order: [[{ model: Skills }, 'Name', 'asc']]
     }).then((char) => {
-        console.log(char.get({ plain: true }));
+        //console.log(char.get({ plain: true }));
         res.render("dndcard", {
             title: char.Name,
             char_info: char,
@@ -90,7 +90,7 @@ exports.character_create_post = [
                 CHA: req.body.cha,
             });
             newChar.validate().then(newChar => {
-                console.log(newChar.get({ plain: true })); // print char if valid
+                //console.log(newChar.get({ plain: true })); // print char if valid
             }).catch(sqlzerrors => {
                 res.render("char_form", {
                     title: "Create Character",
@@ -105,14 +105,14 @@ exports.character_create_post = [
                 if (uniqueCheck && sqlzerrors.length < 1) { // if it is unique and no val errors
                     // save character here and redirect
                     //console.log("create character here");
-                    console.log(newChar);
+                    //console.log(newChar);
                     newChar.save();
-                    console.log(newChar.Name + " was saved to db");
+                    //console.log(newChar.Name + " was saved to db");
 
                     // file upload section
                     if (!req.files) {
                         //return res.status(400).send("No files were uploaded.");
-                        console.log("No files uploaded");
+                        //console.log("No files uploaded");
                     }
 
                     const newPath = __dirname +'/public/images/' + file.name;

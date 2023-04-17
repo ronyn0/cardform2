@@ -59,7 +59,7 @@ exports.features_create_post = (req, res, next) => {
             Description: req.body.description,
             CharID: req.body.CharID
         });
-        console.log(newFeat.get({ plain: true }));
+        //console.log(newFeat.get({ plain: true })); // log the feature
         newFeat.validate().then(newFeat => {
             newFeat.save().then(result => {
                 res.redirect(301, '/CharacterInfo/' + req.body.CharID)

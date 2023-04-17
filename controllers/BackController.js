@@ -69,11 +69,11 @@ exports.background_create_post = (req, res) => {
             Bonds: req.body.bonds,
             Flaws: req.body.flaws
         });
-        console.log(newBack.get({ plain: true }));
+        //console.log(newBack.get({ plain: true }));
         newBack.validate().then(newBack => {
             newBack.save().then(result => {
-                console.log(result.BackgroundId); // if the save is successful get the id
-                console.log(req.body.CharID);
+                //console.log(result.BackgroundId); // if the save is successful get the id
+                //console.log(req.body.CharID);
                 CharacterInfo.update({ BackgroundID: result.BackgroundId }, {
                     where: { CharID: req.body.CharID,}
                     }).then(result => {
