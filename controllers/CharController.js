@@ -115,7 +115,7 @@ exports.character_create_post = [
                         console.log("No files uploaded");
                     }
 
-                    const newPath = '/home/ron/Workspace/cardform2/public/images/' + file.name;
+                    const newPath = __dirname +'/public/images/' + file.name;
 
                     fs.readFile(newPath, (err, data) => {
                         if (!err && data) {
