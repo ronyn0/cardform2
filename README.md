@@ -28,8 +28,8 @@ Testing more with express using mysql
         - Make a generic create lineage section (might not be necessary)
     - Skill form - **done**
         - add support for expertise
-    - Class Feature form - 
-    - Include links to the forms for characters that have empty sections - in progress
+    - Class Feature form - **done**
+    - Include links to the forms for characters that have empty sections - **done**
 6. Create a home page that shows a random character
     - Make a card select page for CharacterInfo index
 7. Make a login and account section, assign owners to characters

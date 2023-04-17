@@ -21,15 +21,33 @@ const Features = sequelize.define("Features", {
     },
     Class: {
         type: Sequelize.STRING,
-        allownull: false
+        allownull: false,
+        validate: {
+            isAlpha: {
+                args:false,
+                msg: "Class Name can only contain letters."
+            },
+        },
     },
     SubClass: {
         type: Sequelize.STRING,
-        allownull: false
+        allownull: false,
+        validate: {
+            isAlpha: {
+                args:false,
+                msg: "Sub Class Name can only contain letters."
+            },
+        },
     },
     FeatureName: {
         type: Sequelize.STRING,
-        allownull: false
+        allownull: false,
+        validate: {
+            isAlpha: {
+                args:false,
+                msg: "Feature Name can only contain letters."
+            },
+        },
     },
     Description: {
         type: Sequelize.STRING,
@@ -37,13 +55,19 @@ const Features = sequelize.define("Features", {
     },
     Link: {
         type: Sequelize.STRING,
-        allownull: true
+        allownull: true,
+        validate: {
+            isURL: {
+                args: false,
+                msg: "Feature Links must be a URL."
+            },
+        },
     }
 }, {
     freezeTableName: true
 });
 
-Features.sync(); // don't alter table 
+//Features.sync(); // don't alter table 
 //Features.sync( {alter:true} ); // do alter table
 /* add a feature to the db
 Features.create({
