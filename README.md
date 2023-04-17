@@ -23,7 +23,7 @@ Testing more with express using mysql
     - CharacterInfo form - **done**
         - Change class to dropdown to add defaults (saves/profs)
         - Add levels to characters you scrub
-    - Background form - 
+    - Background form - **done**
     - Lineage form - **done**
         - Make a generic create lineage section (might not be necessary)
     - Skill form - **done**
