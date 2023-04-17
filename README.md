@@ -24,6 +24,7 @@ Testing more with express using mysql
     - Background form - 
     - Lineage form - **done**
     - Skill form - 
+        - add support for expertise
     - Class Feature form - 
     - Make a generic create lineage section - might not be necessary
     - Include links to the forms for characters that have empty sections - later on
