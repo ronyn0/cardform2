@@ -6,8 +6,8 @@ block content
       div(class='third')
         div(class='card')
           p(class='largeText') Stats:
-          - const bonus = [2,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6];
-          - var pro = bonus[char_info.Level];
+          - const bonus = [2,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6]; //array for proficiency bonus
+          - var pro = bonus[char_info.Level]; //get the proficiency bonus based on character level
             div(class='rounded')
               div(class='stats')
                 if(char_info.Save1 == 'STR' || char_info.Save2 == 'STR')
@@ -105,7 +105,7 @@ block content
       div(class='third')
         div(class='card')
           div(class='largeText charName coolFont') #{char_info.Name}
-          p(class='charName') #{char_info.Lineage} #{char_info.Class}
+          p(class='charName') Level #{char_info.Level} #{char_info.Lineage} #{char_info.Class}
           img(class='imgSizing' src=char_info.ImgLocation width=450 height=620)
           p(class='charInfo boldInfo') Armor Class: #{char_info.AC} &#8226; Initiative: #{char_info.Init} &#8226; HP: #{char_info.HP}
           br
