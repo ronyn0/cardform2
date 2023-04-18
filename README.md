@@ -27,7 +27,7 @@ Testing more with express using mysql
     - Lineage form - **done**
         - Make a generic create lineage section (might not be necessary)
     - Skill form - **done**
-        - add support for expertise
+        - add support for expertise (model/form/view)
     - Class Feature form - **done**
     - Include links to the forms for characters that have empty sections - **done**
 6. Create a home page that shows a random character - in progress
@@ -40,6 +40,7 @@ Testing more with express using mysql
     - Get an SSL cert
 9. Re-format readme - **done**
 
+***
 ### Reminders: 
 To format code press ctrl+shift+i (like css)
 To preview readme press ctrl+shift+v
