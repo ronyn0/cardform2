@@ -19,7 +19,7 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: false,
         validate: {
             isAlpha: {
-                args:false,
+                args: false,
                 msg: "Name can only contain letters."
             },
         },
@@ -29,7 +29,7 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: true,
         validate: {
             isAlpha: {
-                args:false,
+                args: false,
                 msg: "Playername can only contain letters."
             },
         },
@@ -40,7 +40,7 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         allownull: false,
         validate: {
             isAlpha: {
-                args:false,
+                args: false,
                 msg: "Class can only contain letters."
             },
         },
@@ -61,19 +61,19 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         defaultValue: 10,
         validate: {
             isInt: {
-                args:false,
+                args: false,
                 msg: "AC can only contain numbers."
             },
         },
     },
-    Bonus: {
+    Level: {
         type: Sequelize.INTEGER,
         allownull: true,
-        defaultValue: 2,
+        defaultValue: 1,
         validate: {
             isInt: {
-                args:false,
-                msg: "Proficiency bonus can only contain numbers."
+                args: false,
+                msg: "Level can only contain numbers."
             },
         },
     },
@@ -83,10 +83,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         defaultValue: 10,
         validate: {
             isInt: {
-                args:false,
+                args: false,
                 msg: "Strength can only contain numbers 1-20."
             },
-            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+            is: /^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
     DEX: {
@@ -95,10 +95,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         defaultValue: 10,
         validate: {
             isInt: {
-                args:false,
+                args: false,
                 msg: "Decterity can only contain numbers 1-20."
             },
-            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+            is: /^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
     CON: {
@@ -107,10 +107,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         defaultValue: 10,
         validate: {
             isInt: {
-                args:false,
+                args: false,
                 msg: "Constitution can only contain numbers 1-20."
             },
-            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+            is: /^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
     INT: {
@@ -119,10 +119,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         defaultValue: 10,
         validate: {
             isInt: {
-                args:false,
+                args: false,
                 msg: "Intelligence can only contain numbers 1-20."
             },
-            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+            is: /^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
     WIS: {
@@ -131,10 +131,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         defaultValue: 10,
         validate: {
             isInt: {
-                args:false,
+                args: false,
                 msg: "Wisdom can only contain numbers 1-20."
             },
-            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+            is: /^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
     CHA: {
@@ -143,10 +143,10 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         defaultValue: 10,
         validate: {
             isInt: {
-                args:false,
+                args: false,
                 msg: "Charisma can only contain numbers 1-20."
             },
-            is:/^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
+            is: /^[1-9]$|^0[1-9]$|^1[0-9]$|^20$/,
         },
     },
     Init: {
@@ -155,7 +155,7 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         defaultValue: 0,
         validate: {
             isInt: {
-                args:false,
+                args: false,
                 msg: "Initiative can only contain numbers."
             },
         },
@@ -166,7 +166,7 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
         defaultValue: 1,
         validate: {
             isInt: {
-                args:false,
+                args: false,
                 msg: "HP can only contain numbers."
             },
         },
@@ -188,13 +188,13 @@ const CharacterInfo = sequelize.define("CharacterInfo", {
     freezeTableName: true
 }, {
     classMethods: {
-        associate:function(models) {
+        associate: function (models) {
             CharacterInfo.hasOne(models.Background, { foreignKey: 'BackgroundId' });
         },
-        associate:function(models) {
-            CharacterInfo.hasMany(models.Features, { foreignKey: 'CharID' });    
+        associate: function (models) {
+            CharacterInfo.hasMany(models.Features, { foreignKey: 'CharID' });
         },
-        associate:function(models) {
+        associate: function (models) {
             CharacterInfo.hasOne(models.Lineage, { foreignKey: 'CharID' });
         }
     }
@@ -213,13 +213,15 @@ CharacterInfo.hasMany(Features, {
     sourceKey: 'CharID'
 });
 
-Skills.belongsToMany(CharacterInfo, { 
+Skills.belongsToMany(CharacterInfo, {
     through: 'Char_Skills',
-    sourceKey: 'SkillID' });
+    sourceKey: 'SkillID'
+});
 
-CharacterInfo.belongsToMany(Skills, { 
+CharacterInfo.belongsToMany(Skills, {
     through: 'Char_Skills',
-    sourceKey: 'CharID' });
+    sourceKey: 'CharID'
+});
 
 //CharacterInfo.sync(); //don't alter
 //CharacterInfo.sync({alter:true}); // do alter

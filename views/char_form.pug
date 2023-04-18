@@ -21,6 +21,15 @@ block content
         label(for='HP') HP:
         input#hp(type='text', name='hp')
       div(class='statContainer')
+        label(for='level' class='leftLabel') Level:
+        select#level(name='level' class='dropdownStyle')
+          -for(let i = 1; i <= 20; i++)
+            if(i == 1)
+              option(value=i selected='selected') #{i}
+            else
+              option(value=i) #{i}
+        br
+        br
         label(for='str' class='leftLabel') Strength: 
         select#str(name='str' class='dropdownStyle')
           -for(let i = 1; i <= 20; i++)

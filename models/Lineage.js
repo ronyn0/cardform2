@@ -16,7 +16,7 @@ const Lineage = sequelize.define("Lineage", {
         foreignKey: true,
         validate: {
             isNumeric: {
-                args:false,
+                args: false,
                 msg: "CharID can only contain numbers."
             },
         },
@@ -26,7 +26,7 @@ const Lineage = sequelize.define("Lineage", {
         allownull: false,
         validate: {
             isAlpha: {
-                args:false,
+                args: false,
                 msg: "Lineage Name can only contain letters."
             },
         },
@@ -52,22 +52,22 @@ const Lineage = sequelize.define("Lineage", {
         allownull: true,
         validate: {
             isURL: {
-                args:false,
+                args: false,
                 msg: "Link must be a url."
             },
         },
     }
 }, {
-freezeTableName: true
-},{
+    freezeTableName: true
+}, {
     classMethods: {
-        associate:function(models) {
+        associate: function (models) {
             Lineage.belongsTo(models.CharacterInfo, { foreignKey: 'CharId' });
         }
     }
 });
 
-Lineage.sync();
+//Lineage.sync();
 
 /*
 Lineage.create({

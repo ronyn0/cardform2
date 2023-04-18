@@ -17,12 +17,12 @@ Testing more with express using mysql
     - Features - **done**
     - Lineage - **done**
     - Skill Proficiencies - **done**
-5. Make the form for characters - in progress
-    - Handle validation in sequelize - in progress
+5. Make the form for characters - **done**
+    - Handle validation in sequelize - **done**
     - Make form template better - **done**
     - CharacterInfo form - **done**
         - Change class to dropdown to add defaults (saves/profs)
-        - Add levels to characters you scrub
+        - Add levels to characters - **done**
     - Background form - **done**
     - Lineage form - **done**
         - Make a generic create lineage section (might not be necessary)
@@ -30,14 +30,14 @@ Testing more with express using mysql
         - add support for expertise
     - Class Feature form - **done**
     - Include links to the forms for characters that have empty sections - **done**
-6. Create a home page that shows a random character
-    - Make a card select page for CharacterInfo index
+6. Create a home page that shows a random character - in progress
+    - Make a card select page for CharacterInfo index - in progress
 7. Make a login and account section, assign owners to characters
-    - Owner, group all permission structure, all can view
+    - Owner-group-all permission structure, all can view
     - Admin group can edit all the pages
 8. Deploy to a server
-    - Get an SSL cert
     - Look into [Railway](https://railway.app/) hosting
+    - Get an SSL cert
 9. Re-format readme - **done**
 
 ### Reminders: 

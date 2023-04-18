@@ -82,6 +82,7 @@ exports.character_create_post = [
                 AC: req.body.ac,
                 HP: req.body.hp,
                 ImgLocation: '/images/' + file.name,
+                Level: req.body.level,
                 STR: req.body.str,
                 DEX: req.body.dex,
                 CON: req.body.con,
@@ -115,7 +116,7 @@ exports.character_create_post = [
                         //console.log("No files uploaded");
                     }
 
-                    const newPath = __dirname +'/public/images/' + file.name;
+                    const newPath = __dirname + '/public/images/' + file.name;
 
                     fs.readFile(newPath, (err, data) => {
                         if (!err && data) {
