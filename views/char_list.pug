@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+  h1 #{title}
+  p show the list of characters
+    each char in chars
+        div(class='infoCard')
+          div(class='rounded')
+            p #{char.Name}
+          a(href="/CharacterInfo/" + char.CharID)
+          br
+          img(class='imgSizing2' src=char.ImgLocation)

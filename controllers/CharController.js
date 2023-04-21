@@ -8,8 +8,19 @@ const fs = require('fs');
 
 // Display homepage
 exports.index = (req, res, next) => {
-    res.render("index", {
-        title: "Character Info",
+    const chars = CharacterInfo.findAll().then((chars) => {
+        //console.log(char.get({ plain: true }));
+        res.render("char_list", {
+            title: "list characters",
+            chars: chars
+        })
+    }).catch(function (err) {
+        res.status(500);
+        res.render('error', { error: err }) //show the error info
+        res.render('error', {
+            message: 'Character not found',
+            error: err,
+        });
     })
 };
 

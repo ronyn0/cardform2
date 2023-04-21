@@ -319,3 +319,30 @@ div.skillForm {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+/* Styling the characterinfo landing page*/
+div.infoCard {
+  width: 400px;
+  height: 600px;
+  background-color: #FFF;
+  padding: 10px;
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.imgSizing2 {
+  width: 80%;
+  position: relative;
+}
+
+div.infoCard a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
