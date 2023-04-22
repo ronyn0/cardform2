@@ -332,6 +332,7 @@ div.infoCard {
   cursor: pointer;
   position: relative;
   vertical-align: top;
+  transition: box-shadow 0.5s;
 }
 
 .imgSizing2 {
@@ -347,4 +348,8 @@ div.infoCard a {
   left: 0;
   z-index: 1;
   margin: 0px;
+}
+
+div.infoCard:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
