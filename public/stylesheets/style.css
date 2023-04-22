@@ -322,15 +322,16 @@ div.skillForm {
 
 /* Styling the characterinfo landing page*/
 div.infoCard {
-  width: 400px;
-  height: 600px;
+  width: 380px;
+  height: 580px;
   background-color: #FFF;
   padding: 10px;
   display: inline-block;
-  margin: 10px;
+  margin: 0px 10px 10px 10px;
   text-align: center;
   cursor: pointer;
   position: relative;
+  vertical-align: top;
 }
 
 .imgSizing2 {
@@ -345,4 +346,5 @@ div.infoCard a {
   top: 0;
   left: 0;
   z-index: 1;
+  margin: 0px;
 }
