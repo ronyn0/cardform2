@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var favicon = require('express-favicon');
 var fileUpload = require('express-fileupload');
+const session = require('express-session');
 
 // Routes
 var indexRouter = require('./routes/index');
@@ -15,6 +16,7 @@ var wiki = require("./routes/wiki");
 var Background = require("./routes/Background");
 var Features = require("./routes/Features");
 var Skills = require("./routes/Skills");
+var Login = require("./routes/Login");
 
 var app = express();
 
@@ -24,11 +26,16 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(__dirname + '/public/images/d20.png'));
 app.use(fileUpload());
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -38,6 +45,7 @@ app.use('/Lineage', Lineage);
 app.use('/Background', Background);
 app.use('/Features', Features);
 app.use('/Skills', Skills);
+app.use('/Login', Login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

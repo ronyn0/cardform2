@@ -5,6 +5,7 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href="https://use.fontawesome.com/releases/v5.7.1/css/all.css")
     block navbar 
       div(class='navbar')
         ul
@@ -16,6 +17,8 @@ html(lang='en')
             a(href='/CharacterInfo/create') Create a Character
           li 
             a(href='/CharacterInfo/about') About this
+          li(class='loginButton') 
+            a(href='/Login') Log in
   body
       block content
   footer
