@@ -46,7 +46,7 @@ app.use(session({
   store: sessionStore,
   secret: 'secret',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false
 }));
 
 app.use('/', indexRouter);

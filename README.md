@@ -34,7 +34,7 @@ Testing more with express using mysql
     - Make a card select page for CharacterInfo index - **done**
 7. Make a login and account section, assign owners to characters - in progress
     - Implement [connect-session-sequelize
-](https://www.npmjs.com/package/express-mysql-session)
+](https://www.npmjs.com/package/express-mysql-session) - **done**
     - Make model for accounts
     - Associate accounts with characterinfo
     - Owner-group-all permission structure (Owner can edit, Admin group can edit all the pages)
