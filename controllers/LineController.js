@@ -16,7 +16,8 @@ exports.lineage_create_get = (req, res, next) => {
     }).then((char) => {
         res.render("line_form", {
             title: char.Name,
-            char_info: char
+            char_info: char,
+            username: req.session.username
         })
     }).catch(function (err) {
         res.status(500);

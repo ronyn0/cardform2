@@ -15,7 +15,8 @@ exports.features_create_get = (req, res, next) => {
     }).then((char) => {
         res.render("feat_form", {
             title: char.Name,
-            char_info: char
+            char_info: char,
+            username: req.session.username
         })
     }).catch(function (err) {
         res.status(500);

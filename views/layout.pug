@@ -19,6 +19,9 @@ html(lang='en')
             a(href='/CharacterInfo/about') About this
           li(class='loginButton') 
             a(href='/Login') Log in
+          if(username)
+            li(class='loginButton') 
+              a #{username}
   body
       block content
   footer

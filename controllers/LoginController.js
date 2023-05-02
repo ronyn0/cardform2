@@ -1,5 +1,4 @@
 const connection = require('../database/mydb');
-const session = require('express-session');
 
 // display login page
 exports.index = (req, res, next) => {
@@ -10,7 +9,6 @@ exports.index = (req, res, next) => {
 
 // process login form post
 exports.auth = (req, res, next) => {
-    //res.send("not implemented");
     let username = req.body.username;
     let password = req.body.password;
     // Ensure the input fields exists and are not empty
@@ -23,9 +21,9 @@ exports.auth = (req, res, next) => {
             if (results.length > 0) {
                 // Authenticate the user
                 req.session.loggedin = true;
-                req.session.username = username;
+                req.session.username = results[0].username;
                 // Redirect to home page
-                res.redirect('/Login/home');
+                res.redirect('/CharacterInfo/');
             } else {
                 res.send('Incorrect Username and/or Password!');
             }

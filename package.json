@@ -22,7 +22,8 @@
     "mysql": "^2.18.1",
     "mysql2": "^3.2.0",
     "pug": "^3.0.2",
-    "sequelize": "^6.29.3"
+    "sequelize": "^6.29.3",
+    "uid-safe": "^2.1.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.21"

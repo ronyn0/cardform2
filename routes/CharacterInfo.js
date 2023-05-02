@@ -11,7 +11,10 @@ router.get("/", CharacterInfo_Controller.index);
 
 // About page route (/CharacterInfo/about)
 router.get("/about", function (req, res) {
-  res.render("about.pug", {title: "About page" })
+  res.render("about.pug", {
+    title: "About page",
+    username: req.session.username 
+  })
 });
 
 // New char form (/CharacterInfo/create)

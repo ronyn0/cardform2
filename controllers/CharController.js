@@ -9,10 +9,11 @@ const fs = require('fs');
 // Display homepage
 exports.index = (req, res, next) => {
     const chars = CharacterInfo.findAll().then((chars) => {
-        //console.log(char.get({ plain: true }));
+        //console.log(req.session);
         res.render("char_list", {
             title: "list characters",
-            chars: chars
+            chars: chars,
+            username: req.session.username
         })
     }).catch(function (err) {
         res.status(500);
@@ -39,6 +40,7 @@ exports.character = (req, res, next) => {
         res.render("dndcard", {
             title: char.Name,
             char_info: char,
+            username: req.session.username,
             sortFeatures: function (a) {
                 a.sort(function compareFn(a, b) { return a.Level - b.Level; })
             }
@@ -55,7 +57,10 @@ exports.character = (req, res, next) => {
 
 // Display character create form on http GET request
 exports.character_create_get = (req, res, next) => {
-    res.render("char_form", { title: "Create Character" });
+    res.render("char_form", { 
+        title: "Create Character",
+        username: req.session.username
+    });
 };
 
 // Handle character create on http POST request
@@ -80,6 +85,7 @@ exports.character_create_post = [
             res.render("char_form", {
                 title: "Create Character",
                 errors: errors.array(),
+                username: req.session.username
             });
             return;
         } else {

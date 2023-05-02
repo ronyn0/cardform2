@@ -15,7 +15,8 @@ exports.skill_create_get = (req, res, next) => {
     }).then((char) => {
         res.render("skill_form", {
             title: char.Name,
-            char_info: char
+            char_info: char,
+            username: req.session.username
         })
     }).catch(function (err) {
         res.status(500);
