@@ -33,7 +33,8 @@ Testing more with express using mysql
 6. Create a home page that shows a random character - in progress
     - Make a card select page for CharacterInfo index - **done**
 7. Make a login and account section, assign owners to characters - in progress
-    - Implement [connection-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
+    - Implement [connect-session-sequelize
+](https://www.npmjs.com/package/express-mysql-session)
     - Make model for accounts
     - Associate accounts with characterinfo
     - Owner-group-all permission structure (Owner can edit, Admin group can edit all the pages)

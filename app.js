@@ -6,6 +6,8 @@ var logger = require('morgan');
 var favicon = require('express-favicon');
 var fileUpload = require('express-fileupload');
 const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
+const mydb = require('./database/mydb');
 
 // Routes
 var indexRouter = require('./routes/index');
@@ -32,14 +34,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(__dirname + '/public/images/d20.png'));
 app.use(fileUpload());
 
+// MySQL session store
+const sessionStore = new MySQLStore({}, mydb);
+
 // Session information and settings
 app.use(session({
   cookie: { 
     maxAge: 60000,
     secure: 'auto' 
   },
+  store: sessionStore,
   secret: 'secret',
-  resave: true,
+  resave: false,
   saveUninitialized: true
 }));
 
