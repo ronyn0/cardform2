@@ -35,10 +35,10 @@ Testing more with express using mysql
 7. Make a login and account section, assign owners to characters - in progress
     - Implement [connect-session-sequelize
 ](https://www.npmjs.com/package/express-mysql-session) - **done**
-    - Make model for accounts
+    - Make model for accounts - **done**
     - Associate accounts with characterinfo
     - Owner-group-all permission structure (Owner can edit, Admin group can edit all the pages)
-    - Make sure username is displayed on every page
+    - Make sure username is displayed on every page - in progress
 8. Deploy to a server
     - Look into [Railway](https://railway.app/) hosting
     - Get an SSL cert
