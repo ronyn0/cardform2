@@ -15,7 +15,7 @@ const Accounts = sequelize.define("Accounts", {
         unique: true,
         validate: {
             is: {
-                args: /^[a-z0-9]+$/i, // string contains letters
+                args: /^[a-z0-9]+$/i, // string contains letters and numbers
                 msg: "Username can only contain letters and numbers."
             },
             len: [2,50]
