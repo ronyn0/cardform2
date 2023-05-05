@@ -36,6 +36,8 @@ Testing more with express using mysql
     - Implement [connect-session-sequelize
 ](https://www.npmjs.com/package/express-mysql-session) - **done**
     - Make model for accounts - **done**
+    - Add account creation
+    - Secure password storing
     - Associate accounts with characterinfo
     - Owner-group-all permission structure (Owner can edit, Admin group can edit all the pages)
     - Make sure username is displayed on every page - in progress
