@@ -43,7 +43,7 @@ Testing more with express using mysql
     - Make sure username is displayed on every page - in progress
 8. Deploy to a server
     - Look into [Railway](https://railway.app/) hosting
-    - Get an SSL cert
+    - Get an SSL cert - **done**
 9. Re-format readme - **done**
 
 ***
