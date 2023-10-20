@@ -51,7 +51,13 @@ Testing more with express using mysql
 To format code press ctrl+shift+i (like css)
 To preview readme press ctrl+shift+v
 
-To launch the application do $npm run devstart
-if node says the port is in use do $ lsof -i :3000 -t | xargs kill
+To launch the application do 
+```
+$ npm run devstart
+```
+if node says the port is in use do 
+```
+$ lsof -i :3000 -t | xargs kill
+```
 
 Big problems become small problems, small problems become nothing.
