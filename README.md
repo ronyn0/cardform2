@@ -30,6 +30,7 @@ Testing more with express using mysql
         - add support for expertise (model/form/view)
     - Class Feature form - **done**
     - Include links to the forms for characters that have empty sections - **done**
+    - Make for data driven (don't hard code data pull from db)
 6. Create a home page that shows a random character - in progress
     - Make a card select page for CharacterInfo index - **done**
 7. Make a login and account section, assign owners to characters - in progress
